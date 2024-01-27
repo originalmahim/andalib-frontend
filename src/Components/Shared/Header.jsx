@@ -49,7 +49,7 @@ const Header = () => {
           <header className=" p-4">
           <div className="container flex justify-between h-16 mx-auto">
           <a className="flex items-center p-2">
-          <img src="https://starbelly.windstripedesign.ro/images/ui/logo.svg"  />
+          <img className="w-44" src="https://andalib.xyz/wp-content/uploads/2024/01/Yellow-and-Black-Modern-Streaming-Platform-Logo-2.png"  />
           </a>
           <ul className="items-stretch hidden space-x-3 lg:flex">
           {links}
