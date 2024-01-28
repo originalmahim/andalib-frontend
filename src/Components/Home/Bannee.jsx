@@ -1,18 +1,18 @@
-
+import { FaArrowRight } from "react-icons/fa";
 const Bannee = () => {
           return (
            <div className="bg-gradient-to-r from-[#FAFAFA] from-0% to-[#FCFCFC] to-100%">
           <div className=" max-w-7xl  mx-auto  ">
            <div className='py-24 lg:flex md:flex  md:flex-row-reverse  justify-between items-center gap-8'>
            <div className='md:w-1/2 space-y-7 px-4'>
-           <h2 className='md:text-5xl text-4xl font-bold md:leading-snug leading-snug  '>Discover Fashion <br/>   
-           That  <span className='  text-sky-400'>Defines You</span></h2>
-          <p className='lg:text-xl  text-[#4A4A4A]'>Where Each Plate Weaves a Story of Culinary Mastery and Passionate Craftsmanship</p>
-           <button className='btn shadow-md bg-violet-500 px-8 py-3 font-semibold  text-white rounded-full'>Shop Now</button>
+           <h2 className='md:text-5xl text-3xl font-bold md:leading-snug leading-snug  '>Discover Fashion <br/>   
+           That  <span className=' text-sky-400'>Defines You</span></h2>
+          <p className='lg:text-xl text-[#4A4A4A]'>Where Each Plate Weaves a Story of <br/> Culinary Mastery and Passionate </p>
+           <button className='btn shadow-md bg-violet-500 px-8 py-3 font-semibold  text-white rounded-full items-center justify-center'>Shop Now <FaArrowRight className="text-md" /> </button>
            </div>
            {/* images */}
            <div className='md:w-1/2'>
-                    <img src="https://andalib.xyz/wp-content/uploads/2024/01/replicate-prediction-2uvfdldbq6oawzvhz2ypv3mcly-1024x825.png" alt="" />
+                    <img className="" src="https://andalib.xyz/wp-content/uploads/2024/01/replicate-prediction-2uvfdldbq6oawzvhz2ypv3mcly-1024x825.png" alt="" />
                     <div className="flex items-center justify-center gap-4">
                     <div className="flex -mt-4 lg:w-52 w-44 shadow-md bg-white gap-2 p-2 rounded-md items-center justify-center">
 
