@@ -1,9 +1,13 @@
-import Banner from "./Banner";
+ import Bannee from "./Bannee";
+ import Banner from "./Banner";
+
 
 const Home = () => {
           return (
           <div>
-          <Banner></Banner>                    
+                    
+                    <Bannee></Bannee>
+            {/* <Banner></Banner>  */}
           </div>
           );
 };
