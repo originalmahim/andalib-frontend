@@ -1,6 +1,7 @@
 {
   "name": "andalib-project",
   "private": true,
+  "homepage": "https://new.andalib.xyz",
   "version": "0.0.0",
   "type": "module",
   "scripts": {
