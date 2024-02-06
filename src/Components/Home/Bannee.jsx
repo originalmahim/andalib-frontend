@@ -1,5 +1,5 @@
 import { FaArrowRight } from "react-icons/fa";
-import banner from './../../../public/banner.png'
+import banner from './../../assets/banner.png'
 const Bannee = () => {
           return (
           <div className="bg-gradient-to-r from-[#FAFAFA] from-0% to-[#FCFCFC] to-100%">
