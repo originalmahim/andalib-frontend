@@ -1,8 +1,8 @@
 import { FaFacebook, FaGithub, FaTwitter } from 'react-icons/fa';
-import logo from './../../assets/footerlogo.png'
+// import logo from './../../assets/footerlogo.png'
 const Footer = () => {
           return (
-            <div className='bg-gradient-to-r from-[#FAFAFA] from-0% to-[#FCFCFC] to-100%'>
+            <div className='bg-[#f2f0fd]'>
           <div className="max-w-7xl mx-auto  text-xl">
           <footer className="footer p-10 text-black">
           <aside>

@@ -1,5 +1,6 @@
  import Bannee from "./Bannee";
- import Banner from "./Banner";
+import Subscribe from "./subscribe";
+//  import Banner from "./Banner";
 
 
 const Home = () => {
@@ -8,6 +9,7 @@ const Home = () => {
                     
                     <Bannee></Bannee>
             {/* <Banner></Banner>  */}
+            <Subscribe></Subscribe>
           </div>
           );
 };
