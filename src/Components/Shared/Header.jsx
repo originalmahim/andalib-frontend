@@ -2,6 +2,7 @@ import { Outlet } from "react-router-dom";
 import { FaPhoneVolume } from "react-icons/fa6";
 import Footer from "./Footer";
 import { useEffect, useState } from "react";
+import logo from './../../assets/logo.png'
 
 const Header = () => {
 
@@ -73,7 +74,7 @@ const Header = () => {
         {navItems}
       </ul>
     </div>
-    <a className="btn btn-ghost text-xl"><img className="w-36 lg:w-40 items-center justify-center" src="https://andalib.xyz/wp-content/uploads/2024/01/Yellow-and-Black-Modern-Streaming-Platform-Logo-2.png" alt="logo" /></a>
+    <a className="btn btn-ghost text-xl"><img className="w-28 lg:w-32 items-center justify-center" src={logo} alt="logo" /></a>
   </div>
   <div className="navbar-center hidden lg:flex">
     <ul className="menu menu-horizontal px-1">
