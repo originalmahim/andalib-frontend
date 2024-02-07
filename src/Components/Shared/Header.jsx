@@ -95,7 +95,7 @@ const Header = () => {
         </div>
     {/* cart icon End */}
       </div>
-      <Link to='/login' >
+      <Link to='/Login' >
     <div tabIndex={0} role="button" className="mr-3 items-center justify-center flex btn btn-ghost btn-circle">
         <FaRegUser className="text-xl"></FaRegUser>
       </div>
