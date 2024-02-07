@@ -1,11 +1,11 @@
 
 import { FcGoogle } from 'react-icons/fc';
- import { Link, useNavigate } from "react-router-dom";
- import {  useContext, useState } from 'react';
+import { Link, useNavigate } from "react-router-dom";
+import {  useContext, useState } from 'react';
 import { AiFillEye,AiFillEyeInvisible } from 'react-icons/ai';
- import { GoogleAuthProvider, getAuth, signInWithPopup, updateProfile } from 'firebase/auth';
- import Swal from 'sweetalert2'
-// import axios from 'axios';
+import { GoogleAuthProvider, getAuth, signInWithPopup, updateProfile } from 'firebase/auth';
+import Swal from 'sweetalert2'
+//import axios from 'axios';
 import { Helmet } from 'react-helmet';
 import { AuthContex } from '../Providers/Authprovider';
 import app from '../Shared/firebase.config';
@@ -13,13 +13,13 @@ import app from '../Shared/firebase.config';
 
 const SignUp = () => {
 
-   const {CreateUser} = useContext(AuthContex)
-           const [registerError,setRegisterError] = useState('')
-         const [showPassword, setShowPassword] = useState(false);
-    const navigate = useNavigate()
+  const {CreateUser} = useContext(AuthContex)
+          const [registerError,setRegisterError] = useState('')
+        const [showPassword, setShowPassword] = useState(false);
+   const navigate = useNavigate()
 
-    const auth = getAuth(app);
-   const provider = new GoogleAuthProvider();
+   const auth = getAuth(app);
+  const provider = new GoogleAuthProvider();
 
   const handleGoogleSignup = () => {
     signInWithPopup(auth,provider)
@@ -30,7 +30,7 @@ const SignUp = () => {
         subscriptionStatus: "Bronze",
         role:"member"
     }
-//     axios.post('https://starbelly-eta.vercel.app/users', userInfo)
+    // axios.post('https://starbelly-eta.vercel.app/users', userInfo)
     .then(res =>{
         console.log(res.data);
         Swal.fire(
@@ -48,7 +48,6 @@ const SignUp = () => {
         const email = e.target.email.value;
         const password = e.target.password.value;
         const name = e.target.name.value;
-        const url = e.target.photoUrl.value;
         
         setRegisterError('')
 
@@ -61,7 +60,6 @@ const SignUp = () => {
         .then(result => {
           updateProfile(result.user,{
           displayName: name,
-          photoURL: url,
           })
           .then(() => {
             const userInfo = {
@@ -70,7 +68,7 @@ const SignUp = () => {
               subscriptionStatus: "Bronze",
               role:"member"
           }
-//           axios.post('https://starbelly-eta.vercel.app/users', userInfo)
+          // axios.post('https://starbelly-eta.vercel.app/users', userInfo)
           .then(res =>{
               console.log(res.data);
               Swal.fire(
@@ -93,9 +91,9 @@ const SignUp = () => {
           return (
           <div className=''>
             <Helmet>
-          <title>Starbelly | SignUp</title>
+          <title>Andalib | SignUp</title>
           </Helmet>
-          <div className="max-w-6xl mx-auto flex items-center justify-center  text-xl mb-6 mt-12  ">
+          <div className="max-w-6xl mt-14 mx-auto flex items-center justify-center  text-xl mb-6  ">
           <div className='hidden lg:grid'>
           <img className='' src="https://i.ibb.co/Lg5HBfR/Screenshot-2023-11-05-123412.png" alt="" />
           </div>
@@ -106,7 +104,7 @@ const SignUp = () => {
           Create an account
           </h1>
           
-          <form  className="space-y-4 md:space-y-6">
+          <form onSubmit={handlesignupformSubmit} className="space-y-4 md:space-y-6">
           <div>
           <label htmlFor="email" className="block mb-2 text-sm font-medium text-gray-900 ">Your Full Name</label>
           <input
@@ -117,17 +115,6 @@ const SignUp = () => {
           required
           />
           </div>
-          <div>
-          <label htmlFor="email" className="block mb-2 text-sm font-medium text-gray-900 ">Photo Url</label>
-          <input
-          type="text"
-          name="photoUrl"
-          className="bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 "
-          placeholder="Paste Your image Url"
-          required
-          />
-          </div>
-
           <div>
           <label htmlFor="email" className="block mb-2 text-sm font-medium text-gray-900 ">Your email</label>
           <input
@@ -169,7 +156,7 @@ const SignUp = () => {
           </div>
           </div>
           <button
-          onSubmit={handlesignupformSubmit}
+          
           className="w-full text-white bg-violet-400 hover:bg-white hover:text-[#1c6e5f] focus:ring-4 focus:outline-none focus:ring-primary-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center "
           >
           Create an account
@@ -185,7 +172,7 @@ const SignUp = () => {
            
           }
           <div className="text-center">
-            <button onClick={handleGoogleSignup}  className="btn bg-white text-blue-400"> <FcGoogle className='text-2xl' ></FcGoogle> Sign Up with Google</button>
+            <button onClick={handleGoogleSignup} className="btn bg-white text-blue-400"> <FcGoogle className='text-2xl' ></FcGoogle> Sign Up with Google</button>
           </div>
           </div>     
                 </div>

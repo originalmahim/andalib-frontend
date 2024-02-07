@@ -64,7 +64,7 @@ const Login = () => {
       <Helmet>
           <title>Andalib | Login</title>
           </Helmet>
-      <div className="flex justify-around items-center max-w-6xl mx-auto lg:my-20">
+      <div className="mt-14 flex justify-around items-center max-w-6xl mx-auto lg:my-20">
         <div className="hidden lg:flex">
           <img src="https://static.vecteezy.com/system/resources/thumbnails/005/879/539/small_2x/cloud-computing-modern-flat-concept-for-web-banner-design-man-enters-password-and-login-to-access-cloud-storage-for-uploading-and-processing-files-illustration-with-isolated-people-scene-free-vector.jpg" />
         </div>
@@ -72,7 +72,7 @@ const Login = () => {
           <h2 className="mb-3 text-3xl font-semibold text-center">Login to your account</h2>
           <p className="text-sm text-center dark:text-gray-400">
             Do not have an account?
-            <Link to= '/signUp' className="focus:underline text-violet-400 font-bold ml-1 hover:underline">
+            <Link to= '/register' className="focus:underline text-violet-400 font-bold ml-1 hover:underline">
               Sign up
             </Link>
           </p>

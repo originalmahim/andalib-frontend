@@ -9,7 +9,8 @@ const Footer = () => {
           <aside>
           {/* <img className="w-32" src={logo}  /> */}
           <h1 className='text-[30px] '>Andalib</h1>
-          <p className=" text-[16px]">Elevate Your Style, Empower Your Journey. <br/> Curate your fashion story with our exquisite collection .<br/>Where elegance meets functionality .</p>
+          <p className=" text-[16px]">Hotline: +88015 8575 3020 <br /> support@andalib.xyz <br />
+          351/4, kandapara, Jatrabari, Dhaka-1200, Bangladesh</p>
           <div className='flex items-center justify-center gap-2'>
           <a
             href="/"
@@ -61,7 +62,7 @@ const Footer = () => {
           <div className=" w-10 h-2">
           <hr className="border-pink-500 border-2 rounded-full" />
         </div>  
-          <a className="link link-hover">Return Policy</a>
+          <a href="/refund" className="link link-hover">Return Policy</a>
           <br className='lg:hidden md:hidden' />
           <a className="link link-hover">Privacy policy</a>
           <br className='lg:hidden md:hidden' />
@@ -71,8 +72,11 @@ const Footer = () => {
           </footer> 
           <div className="flex flex-col-reverse items-center lg:justify-between  pt-5 pb-10 border-t border-black sm:flex-row">
             <div>
-        <p className="text-[16px] text-black text-center">
-        আন্দালিব © ২০২৩ – ২০২৪ | Developed By <a href="https://tareqazizmahim.netlify.app/">Tareq Aziz Mahim</a> 
+        <p className="text-[16px] text-black text-center hidden lg:flex">
+        আন্দালিব © ২০২৩ – ২০২৪ | Developed By  <a href="https://tareqazizmahim.netlify.app/">Tareq Aziz Mahim</a> 
+        </p>
+        <p className="text-[16px] text-black text-center lg:hidden md:hidden">
+        আন্দালিব © ২০২৩ – ২০২৪ <br /> Developed By <a href="https://tareqazizmahim.netlify.app/">Tareq Aziz Mahim</a> 
         </p>
             </div>
             

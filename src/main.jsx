@@ -10,6 +10,7 @@ import Header from './Components/Shared/Header';
 import SignIn from './Components/Login/SignIn';
 import SignUP from './Components/Login/SignUP';
 import AuthProvider from './Components/Providers/Authprovider';
+import ExchangeRefundPolicy from './Components/Pages/Exchange';
 const router = createBrowserRouter([
   {
     path: "/",
@@ -27,6 +28,10 @@ const router = createBrowserRouter([
       {
         path: '/register',
         element: <SignUP></SignUP>
+      },
+      {
+        path: '/refund',
+        element: <ExchangeRefundPolicy></ExchangeRefundPolicy>
       }
     ]
   },
