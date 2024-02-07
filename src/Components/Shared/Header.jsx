@@ -97,7 +97,7 @@ const Header = () => {
     
     {/* cart icon */}
 
-    <a className="btn rounded-full hidden px-6 bg-sky-400 text-white text-md lg:flex items-center gap-2 "><FaPhoneVolume />Contact</a>
+    <a className="btn rounded-full hidden px-6 bg-violet-400 text-white text-md lg:flex items-center gap-2 "><FaPhoneVolume />Contact</a>
   </div>
  </div>
 </div>

@@ -1,5 +1,6 @@
  import Bannee from "./Bannee";
-import Subscribe from "./subscribe";
+import Info from "./Info";
+ import Subscribe from "./subscribe";
 //  import Banner from "./Banner";
 
 
@@ -7,8 +8,9 @@ const Home = () => {
           return (
           <div>
                     
-                    <Bannee></Bannee>
+            <Bannee></Bannee>
             {/* <Banner></Banner>  */}
+            <Info></Info>
             <Subscribe></Subscribe>
           </div>
           );

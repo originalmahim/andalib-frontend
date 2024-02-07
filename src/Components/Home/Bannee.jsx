@@ -8,9 +8,9 @@ const Bannee = () => {
             
           <div className='md:w-1/2 space-y-7 px-4'>
           <h2 className='md:text-5xl text-3xl font-bold md:leading-snug leading-snug  '>Discover Fashion <br/>   
-          That  <span className=' text-sky-400'>Defines You</span></h2>
+          That  <span className=' text-pink-500'>Defines You</span></h2>
           <p className='lg:text-xl text-[#4A4A4A]'>Where Each Plate Weaves a Story of <br/> Culinary Mastery and Passionate </p>
-          <button className='btn shadow-md bg-violet-500 px-8 py-3 font-semibold  text-white rounded-full items-center justify-center'>Shop Now <FaArrowRight className="text-md" /> </button>
+          <button className='btn shadow-md bg-pink-500 px-8 py-3 font-semibold  text-white rounded-full items-center justify-center'>Shop Now <FaArrowRight className="text-md" /> </button>
           </div>
           {/* images */}
           <div className='md:w-1/2'>
@@ -24,11 +24,11 @@ const Bannee = () => {
           <div>
           <h5 className=" font-medium">Treandy Bags</h5>
           <div className="rating rating-sm">
-          <input type="radio" name="rating-2" className="mask mask-star-2 bg-sky-400" />
-          <input type="radio" name="rating-2" className="mask mask-star-2 bg-sky-400"  />
-          <input type="radio" name="rating-2" className="mask mask-star-2 bg-sky-400" />
-          <input type="radio" name="rating-2" className="mask mask-star-2 bg-sky-400" checked />
-          <input type="radio" name="rating-2" className="mask mask-star-2 bg-sky-400" />
+          <input type="radio" name="rating-2" className="mask mask-star-2 bg-pink-400" />
+          <input type="radio" name="rating-2" className="mask mask-star-2 bg-pink-400"  />
+          <input type="radio" name="rating-2" className="mask mask-star-2 bg-pink-400" />
+          <input type="radio" name="rating-2" className="mask mask-star-2 bg-pink-400" checked />
+          <input type="radio" name="rating-2" className="mask mask-star-2 bg-pink-400" />
           </div>
           </div>
 
