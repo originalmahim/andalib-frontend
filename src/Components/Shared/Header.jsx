@@ -1,4 +1,4 @@
-import { Outlet } from "react-router-dom";
+import { Link, Outlet } from "react-router-dom";
 import { FaPhoneVolume } from "react-icons/fa6";
 import Footer from "./Footer";
 import { FaRegUser } from "react-icons/fa";
@@ -29,35 +29,38 @@ const Header = () => {
     <li>
     <a href="/">Home</a>
     </li>
-    <li tabIndex={0}>
-    <details>
-    <summary>Menu</summary>
-    <ul className="p-2">
-    <li> <a>All</a>
-    </li>
     <li>
-    <a>Ledies Bag</a>
-    </li>
-    <li>
-    <a>Gents Bag</a>
-    </li>
-    </ul>
-    </details>
+    <a href="/">Shop</a>
     </li>
     <li tabIndex={0}>
     <details>
     <summary>Services</summary>
     <ul className="p-2">
-    <li> <a>online Order</a>
+    <li> <a>Track My Order</a>
     </li>
     <li>
-    <a>Trace Order</a>
+    <a>I have a Complain</a>
+    </li>
+    <li>
+    <a>FAQ</a>
     </li>
     </ul>
     </details>
     </li>
+    <li tabIndex={0}>
+    <details>
+    <summary>Help Desk</summary>
+    <ul className="p-2">
+    <li> <a>Return Policy</a>
+    </li>
     <li>
-    <a>Offers</a>
+    <a>Contact Us</a>
+    </li>
+    <li>
+    <a>Join Our Team</a>
+    </li>
+    </ul>
+    </details>
     </li>
     </>
     );
@@ -83,19 +86,21 @@ const Header = () => {
     </ul>
   </div>
   <div className="navbar-end">
-    {/* cart icon */}
+    {/* cart icon Start */}
     
     <div tabIndex={0} role="button" className="mr-3 items-center justify-center flex btn btn-ghost btn-circle">
         <div className="indicator">
           <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M3 3h2l.4 2M7 13h10l4-8H5.4M7 13L5.4 5M7 13l-2.293 2.293c-.63.63-.184 1.707.707 1.707H17m0 0a2 2 0 100 4 2 2 0 000-4zm-8 2a2 2 0 11-4 0 2 2 0 014 0z" /></svg>
           <span className="badge badge-sm text-violet-600 indicator-item">0</span>
         </div>
+    {/* cart icon End */}
       </div>
+      <Link to='/login' >
     <div tabIndex={0} role="button" className="mr-3 items-center justify-center flex btn btn-ghost btn-circle">
         <FaRegUser className="text-xl"></FaRegUser>
       </div>
+      </Link>
     
-    {/* cart icon */}
 
     <a className="btn rounded-full hidden px-6 bg-violet-400 text-white text-md lg:flex items-center gap-2 "><FaPhoneVolume />Contact</a>
   </div>
