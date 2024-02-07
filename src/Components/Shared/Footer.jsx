@@ -34,36 +34,45 @@ const Footer = () => {
           </aside>
           <div className='grid grid-flow-col lg:grid-cols-3 md:grid-cols-3 grid-cols-2 gap-16'>
           <nav className='hidden lg:grid md:grid' >
-          <header className="footer-title">Services</header> 
-          <a className="link link-hover">Branding</a>
-          <a className="link link-hover">Design</a>
-          <a className="link link-hover">Marketing</a>
-          <a className="link link-hover">Advertisement</a>
+          <header className="footer-title">Services</header>
+          <div className=" w-14 h-2">
+          <hr className="border-pink-500 border-2 rounded-full" />
+        </div> 
+          <a className="link link-hover">Track Order</a>
+          <a className="link link-hover">Complains</a>
+          <a className="link link-hover">Career Oppurtunity</a>
+          <a className="link link-hover">FAQ</a>
           </nav> 
           <nav className='lg:grid md:grid'>
-          <header className="footer-title">Quick Links</header> 
+          <header className="footer-title">Quick Links</header>
+          <div className=" w-14 h-2">
+          <hr className="border-pink-500 border-2 rounded-full" />
+        </div>  
+          <a className="link link-hover">Home</a>
+          <br className='lg:hidden md:hidden' />
+          <a className="link link-hover">Shop</a>
+          <br className='lg:hidden md:hidden' />
           <a className="link link-hover">About us</a>
           <br className='lg:hidden md:hidden' />
           <a className="link link-hover">Contact</a>
-          <br className='lg:hidden md:hidden' />
-          <a className="link link-hover">Jobs</a>
-          <br className='lg:hidden md:hidden' />
-          <a className="link link-hover">Press kit</a>
           </nav> 
           <nav className='lg:grid md:grid'>
-          <header className="footer-title">Legal</header> 
-          <a className="link link-hover">Terms of use</a>
+          <header className="footer-title">Legal</header>
+          <div className=" w-10 h-2">
+          <hr className="border-pink-500 border-2 rounded-full" />
+        </div>  
+          <a className="link link-hover">Return Policy</a>
           <br className='lg:hidden md:hidden' />
           <a className="link link-hover">Privacy policy</a>
           <br className='lg:hidden md:hidden' />
-          <a className="link link-hover">Cookie policy</a>
+          <a className="link link-hover">Terms & Conditions</a>
           </nav>
             </div> 
           </footer> 
-          <div className="flex flex-col-reverse items-center lg:justify-between  pt-5 pb-10 border-t border-deep-purple-accent-200 sm:flex-row">
+          <div className="flex flex-col-reverse items-center lg:justify-between  pt-5 pb-10 border-t border-black sm:flex-row">
             <div>
         <p className="text-[16px] text-black text-center">
-        স্বত্ব © ২০২৩ - ২০২৪ আন্দালিব কর্তৃক সর্বস্বত্ব সংরক্ষিত
+        আন্দালিব © ২০২৩ – ২০২৪ | Developed By <a href="https://tareqazizmahim.netlify.app/">Tareq Aziz Mahim</a> 
         </p>
             </div>
             

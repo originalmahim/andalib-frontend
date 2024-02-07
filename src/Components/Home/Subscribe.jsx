@@ -1,23 +1,36 @@
 
-
+import { AiFillFacebook } from "react-icons/ai";
 const Subscribe = () => {
           return (
-          <div>
-          <div className="flex items-center justify-center mt-7 mb-7">
-    <div className="w-full lg:w-2/3 mx-2 bg-gradient-to-r from-[#FAFAFA] from-0% to-[#FCFCFC] to-100% shadow-lg rounded-lg border-black border-solid p-8">
-      <h1 className="text-4xl lg:text-6xl font-bold font-kodchasan text-center mb-4">
-        Hi! How can we <span className="text-pink-500">help you?</span>
+          <div className=" max-w-5xl mx-auto">
+          <div className="lg:flex md:flex items-center justify-center mt-7 mb-7 gap-10">
+    <div className="bg-gradient-to-r from-[#FAFAFA] from-0% to-[#FCFCFC] to-100% shadow-lg rounded-lg border-black border-solid p-4">
+      <div className="flex items-center justify-center gap-2">
+      <div>
+      <AiFillFacebook className="text-7xl text-pink-400"></AiFillFacebook>
+      </div>
+      <div>
+      <h1 className="text-lg lg:text-xl font-bold font-kodchasan">
+      আমাদের পেইজে লাইক দিন
       </h1>
-      <p className="text-center mb-6">
-        Get helpful information on what’s important to you when choosing your right Bag.
-      </p>
-      <div className="flex flex-col lg:flex-row items-center justify-center lg:justify-between space-y-4 lg:space-y-0 lg:space-x-2">
-        
-        <button className="btn btn-primary w-full lg:w-36 rounded-full">
-          Call
-        </button>
+      <button className="btn-sm rounded-md bg-violet-500 text-white">লাইক দিন</button>
+      </div>
       </div>
     </div>
+    <div className="bg-gradient-to-r from-[#FAFAFA] from-0% to-[#FCFCFC] to-100% shadow-lg rounded-lg border-black border-solid p-4">
+      <div className="flex items-center justify-center gap-2">
+      <div>
+      <AiFillFacebook className="text-7xl text-pink-400"></AiFillFacebook>
+      </div>
+      <div>
+      <h1 className="text-lg lg:text-xl font-bold font-kodchasan">
+      আমাদের পেইজে লাইক দিন
+      </h1>
+      <button className="btn-sm rounded-md bg-violet-500 text-white">লাইক দিন</button>
+      </div>
+      </div>
+    </div>
+    
   </div>                    
           </div>
           );
