@@ -34,7 +34,7 @@ const Products = () => {
           const [bags, setBags] = useState([]);
           const slider = useRef(null)
           useEffect( () => {
-          fetch('/public/bags.json')
+          fetch('/bags.json')
           .then((res) => res.json())
           .then(data => {
           console.log(data);
