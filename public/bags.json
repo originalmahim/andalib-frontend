@@ -1,0 +1,63 @@
+[
+          {
+            "_id": 1,
+            "image": "https://i.ebayimg.com/images/g/cB0AAOSwN5lgm-dp/s-l1200.jpg",
+            "bagName": "Classic Tote",
+            "price": 49.99
+          },
+          {
+            "_id": 2,
+            "image": "https://i.ebayimg.com/images/g/cB0AAOSwN5lgm-dp/s-l1200.jpg",
+            "bagName": "Leather Messenger",
+            "price": 89.99
+          },
+          {
+            "_id": 3,
+            "image": "https://i.ebayimg.com/images/g/cB0AAOSwN5lgm-dp/s-l1200.jpg",
+            "bagName": "Canvas Backpack",
+            "price": 39.99
+          },
+          {
+            "_id": 4,
+            "image": "https://i.ebayimg.com/images/g/cB0AAOSwN5lgm-dp/s-l1200.jpg",
+            "bagName": "Travel Duffel",
+            "price": 79.99
+          },
+          {
+            "_id": 5,
+            "image": "https://i.ebayimg.com/images/g/cB0AAOSwN5lgm-dp/s-l1200.jpg",
+            "bagName": "Crossbody Satchel",
+            "price": 59.99
+          },
+          {
+            "_id": 6,
+            "image": "https://i.ebayimg.com/images/g/cB0AAOSwN5lgm-dp/s-l1200.jpg",
+            "bagName": "Rolling Luggage",
+            "price": 129.99
+          },
+          {
+            "_id": 7,
+            "image": "https://i.ebayimg.com/images/g/cB0AAOSwN5lgm-dp/s-l1200.jpg",
+            "bagName": "Fashion Handbag",
+            "price": 69.99
+          },
+          {
+            "_id": 8,
+            "image": "https://i.ebayimg.com/images/g/cB0AAOSwN5lgm-dp/s-l1200.jpg",
+            "bagName": "Hiking Backpack",
+            "price": 54.99
+          },
+          {
+            "_id": 9,
+            "image": "https://i.ebayimg.com/images/g/cB0AAOSwN5lgm-dp/s-l1200.jpg",
+            "bagName": "Sling Bag",
+            "price": 34.99
+          },
+          {
+            "_id": 10,
+            "image": "https://i.ebayimg.com/images/g/cB0AAOSwN5lgm-dp/s-l1200.jpg",
+            "bagName": "Laptop Briefcase",
+            "price": 74.99
+          }
+        ]
+        

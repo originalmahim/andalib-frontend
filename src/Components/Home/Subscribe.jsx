@@ -13,8 +13,8 @@ const Subscribe = () => {
       <div>
       <h1 className="text-lg lg:text-xl font-bold font-kodchasan">
       আমাদের পেইজে লাইক দিন
-      </h1>
-      <button className="btn-sm rounded-md bg-violet-500 text-white">লাইক দিন</button>
+      </h1> 
+      <button className="btn-sm rounded-md bg-violet-500 text-white"><a href="https://www.facebook.com/andalibbags">লাইক দিন</a></button>
       </div>
       </div>
     </div>

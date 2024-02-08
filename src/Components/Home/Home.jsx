@@ -1,5 +1,6 @@
  import Bannee from "./Bannee";
 import Info from "./Info";
+import Products from "./Products";
  import Subscribe from "./subscribe";
 //  import Banner from "./Banner";
 
@@ -10,6 +11,7 @@ const Home = () => {
                     
             <Bannee></Bannee>
             {/* <Banner></Banner>  */}
+            <Products></Products>
             <Info></Info>
             <Subscribe></Subscribe>
           </div>

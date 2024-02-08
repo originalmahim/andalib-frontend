@@ -10,8 +10,8 @@ const Info = () => {
         <div className="w-24 h-10">
           <hr className="border-pink-500 border-4 rounded-full" />
         </div>          
-        <h1 className="lg:text-6xl text-4xl font-bold font-kodchasan">We really care <br /> about your <span className="text-pink-500">child <br /> health</span></h1>
-        <p className="lg:py-6 py-2">Health services for children of all ages</p>
+        <h1 className="lg:text-5xl text-4xl font-bold font-kodchasan">We really care <br /> about <span className="text-pink-500">Your Choise </span></h1>
+        <p className="lg:py-6 py-2">Elevate Your Style, Empower Your Journey. <br /> Curate your fashion story with Andalib . </p>
       </div>
     </div>
   </div>
