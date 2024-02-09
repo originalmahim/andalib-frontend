@@ -7,6 +7,7 @@ import { useContext, useEffect, useState } from "react";
 import logo from './../../assets/logo.png'
 import Swal from "sweetalert2";
 import { AuthContex } from "../Providers/Authprovider";
+import Component from "../Home/Modal";
 
 const Header = () => {
 
@@ -87,9 +88,12 @@ const Header = () => {
     </>
     );
 
+
+
   return (
     <div className="" >
       <div className={`fixed top-0 right-0 left-0 bg-white  transition-all duration-300 z-10  ease-in-out ${isStickey ? ' shadow-md bg-base-100 transition-all duration-300 ease-in-out ' : ''}`}>
+        <Component></Component>
         <div className="navbar xl:px-24 max-w-screen-2xl container mx-auto">
   <div className={`navbar-start `}>
     <div className="dropdown">
