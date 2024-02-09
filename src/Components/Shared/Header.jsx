@@ -52,7 +52,7 @@ const Header = () => {
     <a href="/">Home</a>
     </li>
     <li>
-    <a href="/">Shop</a>
+    <a href="/shop">Shop</a>
     </li>
     <li tabIndex={0}>
     <details>

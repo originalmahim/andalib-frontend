@@ -11,6 +11,7 @@ import SignIn from './Components/Login/SignIn';
 import SignUP from './Components/Login/SignUP';
 import AuthProvider from './Components/Providers/Authprovider';
 import ExchangeRefundPolicy from './Components/Pages/Exchange';
+import Menu from './Components/Shop/Shop';
 const router = createBrowserRouter([
   {
     path: "/",
@@ -28,6 +29,10 @@ const router = createBrowserRouter([
       {
         path: '/register',
         element: <SignUP></SignUP>
+      },
+      {
+        path: '/shop',
+        element: <Menu></Menu> ,
       },
       {
         path: '/refund',
