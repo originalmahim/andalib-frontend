@@ -40,7 +40,7 @@ const Footer = () => {
           <hr className="border-pink-500 border-2 rounded-full" />
         </div> 
           <a href="/trackorder" className="link link-hover">Track Order</a>
-          <a className="link link-hover">Complains</a>
+          <a href="/complain" className="link link-hover">I Have a Complain</a>
           <a className="link link-hover">Career Oppurtunity</a>
           <a className="link link-hover">FAQ</a>
           </nav> 
@@ -49,9 +49,9 @@ const Footer = () => {
           <div className=" w-14 h-2">
           <hr className="border-pink-500 border-2 rounded-full" />
         </div>  
-          <a className="link link-hover">Home</a>
+          <a href="/" className="link link-hover">Home</a>
           <br className='lg:hidden md:hidden' />
-          <a className="link link-hover">Shop</a>
+          <a href="/shop" className="link link-hover">Shop</a>
           <br className='lg:hidden md:hidden' />
           <a className="link link-hover">About us</a>
           <br className='lg:hidden md:hidden' />

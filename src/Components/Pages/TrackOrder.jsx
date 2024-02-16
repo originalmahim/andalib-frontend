@@ -35,7 +35,7 @@ const TrackOrder = () => {
                 </ul>
                 <p className="font-bold mb-2 text-pink-400">HOW TO REGISTER COMPLAINT:</p>
                 <ol className="list-decimal list-inside mb-4 text-lg">
-                    <li>Enter your Order number / Contact no / Tracking No. of delivered parcel in “Order Tracking”</li>
+                    <li>Enter your Order number / Contact No. of delivered parcel in “Order Tracking”</li>
                     <li>Select the order you want to complaint against by clicking “complaint button”</li>
                     <li>Select the complaint type (Damaged Product, Incomplete Order, need to exchange, want to return)</li>
                     <li>Select the relevant products against which you want to submit complaint</li>
