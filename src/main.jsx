@@ -6,6 +6,7 @@ import {
 } from "react-router-dom";
 import './index.css'
 import Home from './Components/Home/Home';
+import About from './Components/Pages/About';
 import Header from './Components/Shared/Header';
 import SignIn from './Components/Login/SignIn';
 import SignUP from './Components/Login/SignUP';
@@ -14,11 +15,12 @@ import ExchangeRefundPolicy from './Components/Pages/Exchange';
 import Menu from './Components/Shop/Shop';
 import TrackOrder from './Components/Pages/TrackOrder';
 import Complain from './Components/Pages/Complain';
+import Error from './Components/Pages/Error';
 const router = createBrowserRouter([
   {
     path: "/",
     element: <Header></Header>,
-    errorElement: <h1>this is error</h1>,
+    errorElement: <Error></Error>,
     children: [
       {
          path: '/',
@@ -47,10 +49,14 @@ const router = createBrowserRouter([
       {
         path: '/complain',
         element: <Complain></Complain>
-      }
+      },
+      {
+        path: '/about',
+        element: <About></About>
+      },
       
     ]
-  },
+  }
 ]);
 
 ReactDOM.createRoot(document.getElementById('root')).render(

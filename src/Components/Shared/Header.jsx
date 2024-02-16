@@ -104,7 +104,7 @@ const Header = () => {
         {navItems}
       </ul>
     </div>
-    <a className="btn btn-ghost text-xl"><img className="w-28 lg:w-32 items-center justify-center" src={logo} alt="logo" /></a>
+    <a href="/" className="text-xl"><img className="w-28 lg:w-32 items-center justify-center" src={logo} alt="logo" /></a>
   </div>
   <div className="navbar-center hidden lg:flex">
     <ul className="menu menu-horizontal px-1">

@@ -53,7 +53,7 @@ const Footer = () => {
           <br className='lg:hidden md:hidden' />
           <a href="/shop" className="link link-hover">Shop</a>
           <br className='lg:hidden md:hidden' />
-          <a className="link link-hover">About us</a>
+          <a href="/about" className="link link-hover">Our Story</a>
           <br className='lg:hidden md:hidden' />
           <a className="link link-hover">Contact</a>
           </nav> 
