@@ -39,7 +39,7 @@ const Footer = () => {
           <div className=" w-14 h-2">
           <hr className="border-pink-500 border-2 rounded-full" />
         </div> 
-          <a className="link link-hover">Track Order</a>
+          <a href="/trackorder" className="link link-hover">Track Order</a>
           <a className="link link-hover">Complains</a>
           <a className="link link-hover">Career Oppurtunity</a>
           <a className="link link-hover">FAQ</a>

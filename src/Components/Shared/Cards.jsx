@@ -12,7 +12,7 @@ const Cards = ({ item }) => {
   return (
     <div to={`/menu/${item._id}`} className="card shadow-xl relative mr-5 md:my-5">
       <div
-        className={`rating gap-1 absolute right-2 top-2 p-4 heartStar bg-green-400 ${
+        className={`rating gap-1 absolute right-2 top-2 p-4 heartStar bg-violet-500 ${
           isHeartFilled ? "text-rose-500" : "text-white"
         }`}
         onClick={handleHeartClick}
@@ -29,9 +29,9 @@ const Cards = ({ item }) => {
         <p>Description of the item</p>
         <div className="card-actions justify-between items-center mt-2">
           <h5 className="font-semibold">
-            <span className="text-sm text-red-300">$ </span> {item.price}
+            <span className="text-2xl text-red-500 font-bold">৳ </span> {item.price}
           </h5>
-          <button className="btn bg-green-400 text-white">Add to Cart </button>
+          <button className="btn bg-pink-400 text-white">Add to Cart </button>
         </div>
       </div>
     </div>

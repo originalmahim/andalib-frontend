@@ -12,6 +12,7 @@ import SignUP from './Components/Login/SignUP';
 import AuthProvider from './Components/Providers/Authprovider';
 import ExchangeRefundPolicy from './Components/Pages/Exchange';
 import Menu from './Components/Shop/Shop';
+import TrackOrder from './Components/Pages/TrackOrder';
 const router = createBrowserRouter([
   {
     path: "/",
@@ -37,7 +38,12 @@ const router = createBrowserRouter([
       {
         path: '/refund',
         element: <ExchangeRefundPolicy></ExchangeRefundPolicy>
+      },
+      {
+        path: '/trackorder',
+        element: <TrackOrder></TrackOrder>
       }
+      
     ]
   },
 ]);

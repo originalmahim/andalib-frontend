@@ -117,7 +117,7 @@ const Products = () => {
           <button onClick={() => slider?.current?.slickNext()} className="btn  bg-violet-500 rounded-full ml-5" ><MdOutlineNavigateNext className="text-2xl text-white"></MdOutlineNavigateNext></button>
           </div>
           <div className="text-center my-4 ">
-            <button className="btn bg-violet-500 text-white">Show All</button>
+            <Link to='/shop' className="btn bg-violet-500 text-white">Show All</Link>
           </div>
           </div>
           );

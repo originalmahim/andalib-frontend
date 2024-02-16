@@ -8,7 +8,7 @@ import Products from "./Products";
 
 const Home = () => {
           return (
-          <div>
+          <div className="mt-14">
                     
             <Bannee></Bannee>
             {/* <Banner></Banner>  */}
