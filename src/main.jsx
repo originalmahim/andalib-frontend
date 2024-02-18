@@ -16,6 +16,7 @@ import Menu from './Components/Shop/Shop';
 import TrackOrder from './Components/Pages/TrackOrder';
 import Complain from './Components/Pages/Complain';
 import Error from './Components/Pages/Error';
+import Testing from './Components/Pages/Testing/Testing';
 const router = createBrowserRouter([
   {
     path: "/",
@@ -56,6 +57,10 @@ const router = createBrowserRouter([
       },
       
     ]
+  },
+  {
+    path: '/test',
+    element: <Testing></Testing>
   }
 ]);
 

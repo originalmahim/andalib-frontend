@@ -1,30 +1,34 @@
 import { Link, Outlet } from "react-router-dom";
 import { FaPhoneVolume } from "react-icons/fa6";
 import { LiaUserCheckSolid } from "react-icons/lia";
-import Footer from "./Footer";
 import { FaRegUser } from "react-icons/fa";
 import { useContext, useEffect, useState } from "react";
-import logo from './../../assets/logo.png'
+import logo from './../../../assets/logo.png'
 import Swal from "sweetalert2";
-import { AuthContex } from "../Providers/Authprovider";
-import Component from "../Home/Modal";
+import { AuthContex } from "../../Providers/Authprovider";
 import { CiShop } from "react-icons/ci";
 import { IoHomeOutline } from "react-icons/io5";
 import { BiSupport } from "react-icons/bi";
 import { FaBoxOpen } from "react-icons/fa";
+import { Footer } from "flowbite-react";
 
-const Header = () => {
+
+const Testing = () => {
 
   const [isDropdownOpen, setIsDropdownOpen] = useState(false);
 
   const handleDropdownToggle = () => {
-    setIsDropdownOpen(!isDropdownOpen);
-  };
+          setIsDropdownOpen(!isDropdownOpen);
+        };
+
   const toggleDropdown = () => {
     setIsDropdownOpen(!isDropdownOpen);
   };
 
+  
+
   const {user, LogOut} = useContext(AuthContex)
+  console.log(user);
   const handleLogOut = () => {
             LogOut()
             .then(() => {
@@ -99,7 +103,6 @@ const Header = () => {
   return (
     <div className="" >
       <div className={`fixed top-0 right-0 left-0 bg-white  transition-all duration-300 z-10  ease-in-out ${isStickey ? ' shadow-md bg-base-100 transition-all duration-300 ease-in-out ' : ''}`}>
-        <Component></Component>
         <div className="navbar xl:px-24 max-w-screen-2xl container mx-auto">
   <div className={`navbar-start `}>
     <div className="dropdown lg:hidden relative">
@@ -107,7 +110,7 @@ const Header = () => {
       <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M4 6h16M4 12h8m-8 6h16" /></svg>
       </div>
       <div className={`menu  dropdown-content mt-3 z-[1]  h-full  space-y-2 w-60  ${isDropdownOpen ? '' : 'hidden'}`}>
-      <div className=" bg-cyan-100 shadow-lg">
+      <div>
           { user && <div className="flex items-center">
   {user.photoURL ? (
     <img
@@ -225,10 +228,15 @@ const Header = () => {
             <Link to="/dashboard" className="btn btn-sm bg-yellow-300">
               Dashboard
             </Link>
+            <button onClick={handleLogOut}
+              className="btn btn-sm bg-yellow-300"
+            >
+              LogOut
+            </button>
           </div>
         </ul>
       </div> : 
-      <Link className="hidden lg:grid" to='/Login' >
+      <Link to='/Login' >
     <div tabIndex={0} role="button" className="mr-3 items-center justify-center flex btn btn-ghost btn-circle">
         <FaRegUser className="text-xl"></FaRegUser>
       </div>
@@ -242,12 +250,10 @@ const Header = () => {
   </div>
  </div>
 </div>
-<div className="mt-20">
 <Outlet></Outlet>
-</div>
 <Footer></Footer>
     </div>
   );
 };
 
-export default Header;
+export default Testing;
