@@ -13,7 +13,25 @@ import { IoHomeOutline } from "react-icons/io5";
 import { BiSupport } from "react-icons/bi";
 import { FaBoxOpen } from "react-icons/fa";
 
+import {
+  Drawer,
+  DrawerBody,
+  DrawerHeader,
+  DrawerOverlay,
+  DrawerContent,
+  DrawerCloseButton,
+  useDisclosure,
+  
+} from '@chakra-ui/react'
+import Login from "../Login/SignIn";
+
 const Header = () => {
+
+  const { isOpen, onOpen, onClose } = useDisclosure()
+
+  const handleLoginClick = () => {
+    onOpen(); 
+  };
 
   const [isDropdownOpen, setIsDropdownOpen] = useState(false);
 
@@ -200,13 +218,32 @@ const Header = () => {
       {
         user &&  
         <div className="dropdown hidden lg:flex dropdown-left relative">
-  <div tabIndex={0} role="button" className="" onClick={toggleDropdown}>
+          <div className="flex items-center justify-center gap-4">
+  <div tabIndex={0} role="button"  onClick={toggleDropdown}>
     {user.photoURL ? (
       <img className="w-10 rounded-full mx-auto" src={user.photoURL} alt="User Avatar" />
     ) : (
       <FaRegUser className="text-4xl text-pink-400" />
     )}
   </div>
+  <div>
+  <svg
+          className="hidden fill-current sm:block text-black dark:text-white"
+          width="12"
+          height="8"
+          viewBox="0 0 12 8"
+          fill="none"
+          xmlns="http://www.w3.org/2000/svg"
+        >
+          <path
+            fillRule="evenodd"
+            clipRule="evenodd"
+            d="M0.410765 0.910734C0.736202 0.585297 1.26384 0.585297 1.58928 0.910734L6.00002 5.32148L10.4108 0.910734C10.7362 0.585297 11.2638 0.585297 11.5893 0.910734C11.9147 1.23617 11.9147 1.76381 11.5893 2.08924L6.58928 7.08924C6.26384 7.41468 5.7362 7.41468 5.41077 7.08924L0.410765 2.08924C0.0853277 1.76381 0.0853277 1.23617 0.410765 0.910734Z"
+            fill=""
+          />
+        </svg>
+  </div>
+          </div>
   <div className={`menu dropdown-content mt-14 z-[1] h-full space-y-2 ml-auto ${isDropdownOpen ? '' : 'hidden'}`}>
     <div className="bg-white p-4 shadow-lg rounded-md w-72">
       {user && (
@@ -272,8 +309,19 @@ const Header = () => {
  <div className="hidden lg:grid">
      {
   user ? '' :
-    <a href="/Login" className="btn btn-sm  rounded-full hidden px-6 bg-violet-400 text-white text-md lg:flex items-center gap-2 ">Login</a>
+    <a  className="btn my-4  rounded-full hidden px-6 bg-violet-400 text-white text-md lg:flex items-center gap-2 " onClick={handleLoginClick} >Login</a>
     } 
+    <Drawer onClose={onClose} isOpen={isOpen} size='sm'>
+                      <DrawerOverlay />
+                      <DrawerContent>
+                        <DrawerCloseButton />
+                        <DrawerHeader></DrawerHeader>
+                        <DrawerBody>
+                          <Login></Login>
+                        </DrawerBody>
+                        
+                      </DrawerContent>
+    </Drawer>
  </div>
     
   </div>
