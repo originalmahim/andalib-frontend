@@ -193,7 +193,9 @@ const Testing = () => {
           <path d="M440,424V88H352V13.005L88,58.522V424H16v32h86.9L352,490.358V120h56V456h88V424ZM320,453.642,120,426.056V85.478L320,51Z"></path>
           <rect width="32" height="64" x="256" y="232"></rect>
           </svg>
-          <p className=" text-[16px] font-semibold">{ user ? 'Log Out' : 'Log In'}</p>
+          {
+            user ? <a className="btn rounded-full hidden px-6 bg-violet-400 text-white text-md lg:flex items-center gap-2 " onClick={handleLogOut} >Log Out</a> : <a href="/Login" className="btn rounded-full hidden px-6 bg-violet-400 text-white text-md lg:flex items-center gap-2 "  >Login</a>
+          }
           </a>
           </li>
           </ul>

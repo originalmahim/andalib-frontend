@@ -18,7 +18,6 @@ import Complain from './Components/Pages/Complain';
 import Error from './Components/Pages/Error';
 import Testing from './Components/Pages/Testing/Testing';
 import { ChakraProvider } from '@chakra-ui/react';
-import Slider from './Components/Pages/Testing/Slider' ;
 const router = createBrowserRouter([
   {
     path: "/",
@@ -63,10 +62,6 @@ const router = createBrowserRouter([
   {
     path: '/test',
     element: <Testing></Testing>
-  },
-  {
-    path: '/drawer',
-    element: <Slider></Slider>
   }
 ]);
 

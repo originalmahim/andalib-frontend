@@ -10,6 +10,7 @@ import app from '../Shared/firebase.config';
 
 
 const Login = () => {
+  
   const {LogIn} = useContext(AuthContex)
   const location = useLocation()
   const navigate = useNavigate()
