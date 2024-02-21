@@ -55,7 +55,7 @@ const Login = () => {
     navigate(location?.state ? location.state : '/');
     Swal.fire({
       icon: 'success',
-      title: 'Loged In successfully.',
+      title: 'Loged In ',
       showConfirmButton: false,
       timer: 1500
   });

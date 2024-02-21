@@ -1,4 +1,4 @@
-import {  Outlet } from "react-router-dom";
+import {  Outlet, useNavigate } from "react-router-dom";
 import { LuMapPin } from "react-icons/lu";
 import { LiaUserCheckSolid } from "react-icons/lia";
 import Footer from "./Footer";
@@ -27,7 +27,9 @@ import Login from "../Login/SignIn";
 
 const Header = () => {
 
-  const {user, LogOut} = useContext(AuthContex)
+  const {user, LogOut} = useContext(AuthContex);
+
+  const navigate = useNavigate()
 
   const { isOpen, onOpen, onClose } = useDisclosure();
 
@@ -51,11 +53,13 @@ const Header = () => {
   const handleLogOut = () => {
             LogOut()
             .then(() => {
-              Swal.fire(
-                'Loged Out',
-                'You have loged Out successfully',
-                'success'
-              )
+              Swal.fire({
+                icon: 'success',
+                title: 'Loged out',
+                showConfirmButton: false,
+                timer: 1500
+            });
+            navigate('/');
             })
           }
 

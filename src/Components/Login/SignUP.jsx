@@ -35,7 +35,7 @@ const SignUp = () => {
       if (res.data.insertedId) {
           Swal.fire({
               icon: 'success',
-              title: 'Loged In successfully.',
+              title: 'Loged In ',
               showConfirmButton: false,
               timer: 1500
           });

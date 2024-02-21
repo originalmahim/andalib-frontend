@@ -14,7 +14,7 @@ const Menu = () => {
     // Fetch data from the backend
     const fetchData = async () => {
       try {
-        const response = await fetch("/menu.json");
+        const response = await fetch(`http://localhost:5000/bags`);
         const data = await response.json();
         setMenu(data);
         setFilteredItems(data); // Initially, display all items
@@ -107,10 +107,10 @@ const Menu = () => {
               All
             </button>
             <button
-              onClick={() => filterItems("salad")}
-              className={selectedCategory === "salad" ? "active" : ""}
+              onClick={() => filterItems("Tote Bag")}
+              className={selectedCategory === "Tote Bag" ? "active" : ""}
             >
-              Salad
+              Tote Bag
             </button>
             <button
               onClick={() => filterItems("pizza")}

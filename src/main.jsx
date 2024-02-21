@@ -18,6 +18,7 @@ import Complain from './Components/Pages/Complain';
 import Error from './Components/Pages/Error';
 import Testing from './Components/Pages/Testing/Testing';
 import { ChakraProvider } from '@chakra-ui/react';
+import ProductDetails from './Components/Shop/ProductDetails';
 const router = createBrowserRouter([
   {
     path: "/",
@@ -55,6 +56,11 @@ const router = createBrowserRouter([
       {
         path: '/about',
         element: <About></About>
+      },
+      {
+        path: '/bag/:id',
+        element: <ProductDetails></ProductDetails>,
+        loader: ({params}) => fetch(`http://localhost:5000/bags/${params.id}`)
       },
       
     ]
