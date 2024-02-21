@@ -53,11 +53,12 @@ const Login = () => {
   LogIn(email,password)
   .then(() => {
     navigate(location?.state ? location.state : '/');
-    Swal.fire(
-      'Loged In',
-      'You have Loged In successfully',
-        'success'
-      )
+    Swal.fire({
+      icon: 'success',
+      title: 'Loged In successfully.',
+      showConfirmButton: false,
+      timer: 1500
+  });
   })
   .catch(error => {
     setLoginError(error.message)
