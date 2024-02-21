@@ -5,7 +5,7 @@ import {  useContext, useState } from 'react';
 import { AiFillEye,AiFillEyeInvisible } from 'react-icons/ai';
 import { GoogleAuthProvider, getAuth, signInWithPopup, updateProfile } from 'firebase/auth';
 import Swal from 'sweetalert2'
-//import axios from 'axios';
+import axios from 'axios';
 import { Helmet } from 'react-helmet';
 import { AuthContex } from '../Providers/Authprovider';
 import app from '../Shared/firebase.config';
@@ -27,19 +27,21 @@ const SignUp = () => {
       const userInfo = {
         email: result.user?.email,
         name: result.user?.displayName,
-        subscriptionStatus: "Bronze",
-        role:"member"
+        JoinedDate: "21 Feb 2024",
+        status:"Member"
     }
-    // axios.post('https://starbelly-eta.vercel.app/users', userInfo)
-    .then(res =>{
-        console.log(res.data);
-        Swal.fire(
-          'Account Created',
-          'You have Created Account successfully',
-            'success'
-          )
-        navigate(location?.state ? location.state : '/')
-    })
+    axios.post('http://localhost:5000/totalusers', userInfo)
+    .then(res => {
+      if (res.data.insertedId) {
+          Swal.fire({
+              icon: 'success',
+              title: 'Loged In successfully.',
+              showConfirmButton: false,
+              timer: 1500
+          });
+          navigate('/');
+      }
+  })
      })
  }
 
@@ -48,6 +50,7 @@ const SignUp = () => {
         const email = e.target.email.value;
         const password = e.target.password.value;
         const name = e.target.name.value;
+        const url = '';
         
         setRegisterError('')
 
@@ -60,24 +63,27 @@ const SignUp = () => {
         .then(result => {
           updateProfile(result.user,{
           displayName: name,
+          photoURL: url,
           })
           .then(() => {
             const userInfo = {
               email: email,
               name: name,
-              subscriptionStatus: "Bronze",
-              role:"member"
+        JoinedDate: "21 Feb 2024",
+        status:"Member"
           }
-          // axios.post('https://starbelly-eta.vercel.app/users', userInfo)
-          .then(res =>{
-              console.log(res.data);
-              Swal.fire(
-                'Account Created',
-                'You have Created Account successfully',
-                  'success'
-                )
-              navigate(location?.state ? location.state : '/')
-          })
+          axios.post('http://localhost:5000/totalusers', userInfo)
+          .then(res => {
+            if (res.data.insertedId) {
+                Swal.fire({
+                    icon: 'success',
+                    title: 'Account created successfully.',
+                    showConfirmButton: false,
+                    timer: 1500
+                });
+                navigate('/');
+            }
+        })
            })
           
         })
@@ -87,6 +93,7 @@ const SignUp = () => {
         })
 
         }
+
 
           return (
           <div className=''>

@@ -3,7 +3,7 @@ import { FcGoogle } from 'react-icons/fc';
 import { Link, useLocation, useNavigate } from 'react-router-dom';
 import { GoogleAuthProvider, getAuth, signInWithPopup } from 'firebase/auth';
 import Swal from 'sweetalert2';
-// import axios from 'axios';
+import axios from 'axios';
 import { Helmet } from 'react-helmet';
 import { AuthContex } from '../Providers/Authprovider';
 import app from '../Shared/firebase.config';
@@ -26,18 +26,21 @@ const Login = () => {
       const userInfo = {
         email: result.user?.email,
         name: result.user?.displayName,
-        subscriptionStatus: "Bronze",
-        role:"member"
+        JoinedDate: "21 Feb 2024",
+        status:"Member"
     }
-//     axios.post('https://starbelly-eta.vercel.app/users', userInfo)
-    .then(() =>{
-      navigate(location?.state ? location.state : '/');
-        Swal.fire(
-          'Loged In',
-          'You have Loged In successfully',
-            'success'
-        )
-    })
+     axios.post('http://localhost:5000/totalusers', userInfo)
+     .then(res => {
+      if (res.data.insertedId) {
+          Swal.fire({
+              icon: 'success',
+              title: 'Loged In successfully.',
+              showConfirmButton: false,
+              timer: 1500
+          });
+          navigate('/');
+      }
+  })
      })
  }
 
