@@ -1,30 +1,28 @@
-import  { useEffect, useState } from "react";
+import React from "react";
 import Cards from "./../Shared/Cards";
 import { FaFilter } from "react-icons/fa";
+import { useQuery } from "@tanstack/react-query";
+
 
 const Menu = () => {
-  const [menu, setMenu] = useState([]);
-  const [filteredItems, setFilteredItems] = useState([]);
-  const [selectedCategory, setSelectedCategory] = useState("all");
-  const [sortOption, setSortOption] = useState("default");
-  const [currentPage, setCurrentPage] = useState(1);
-  const [itemsPerPage] = useState(8); // Number of items to display per page
+  const { data: menu , isLoading } = useQuery({
+    queryKey: "menu",
+    queryFn: async () => {
+      const response = await fetch(`https://task-backend-sigma.vercel.app/bags`);
+      const data = await response.json();
+      return data;
+    },
+  });
 
-  useEffect(() => {
-    // Fetch data from the backend
-    const fetchData = async () => {
-      try {
-        const response = await fetch(`https://task-backend-sigma.vercel.app/bags`);
-        const data = await response.json();
-        setMenu(data);
-        setFilteredItems(data); // Initially, display all items
-      } catch (error) {
-        console.error("Error fetching data:", error);
-      }
-    };
+  const [filteredItems, setFilteredItems] = React.useState([]);
+  const [selectedCategory, setSelectedCategory] = React.useState("all");
+  const [sortOption, setSortOption] = React.useState("default");
+  const [currentPage, setCurrentPage] = React.useState(1);
+  const [itemsPerPage] = React.useState(8); // Number of items to display per page
 
-    fetchData();
-  }, []);
+  React.useEffect(() => {
+    setFilteredItems(menu || []);
+  }, [menu]);
 
   const filterItems = (category) => {
     const filtered =
@@ -32,15 +30,15 @@ const Menu = () => {
         ? menu
         : menu.filter((item) => item.category === category);
 
-    setFilteredItems(filtered);
+    setFilteredItems(filtered || []);
     setSelectedCategory(category);
     setCurrentPage(1);
   };
 
   const showAll = () => {
-    setFilteredItems(menu);
+    setFilteredItems(menu || []);
     setSelectedCategory("all");
-    setCurrentPage(1); 
+    setCurrentPage(1);
   };
 
   const handleSortChange = (option) => {
@@ -71,7 +69,6 @@ const Menu = () => {
     setCurrentPage(1);
   };
 
-//   console.log(filteredItems);
   // Pagination logic
   const indexOfLastItem = currentPage * itemsPerPage;
   const indexOfFirstItem = indexOfLastItem - itemsPerPage;
@@ -79,7 +76,8 @@ const Menu = () => {
 
   const paginate = (pageNumber) => setCurrentPage(pageNumber);
 
-
+  if (isLoading) return <div>Loading...</div>;
+  
   return (
     <div>
       {/* menu banner */}

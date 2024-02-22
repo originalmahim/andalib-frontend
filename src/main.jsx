@@ -19,6 +19,12 @@ import Error from './Components/Pages/Error';
 import Testing from './Components/Pages/Testing/Testing';
 import { ChakraProvider } from '@chakra-ui/react';
 import ProductDetails from './Components/Shop/ProductDetails';
+import {
+  QueryClient,
+  QueryClientProvider,
+} from '@tanstack/react-query'
+
+const queryClient = new QueryClient();
 const router = createBrowserRouter([
   {
     path: "/",
@@ -60,7 +66,7 @@ const router = createBrowserRouter([
       {
         path: '/bag/:id',
         element: <ProductDetails></ProductDetails>,
-        loader: ({params}) => fetch(`http://localhost:5000/bags/${params.id}`)
+        loader: ({params}) => fetch(`https://task-backend-sigma.vercel.app/bags/${params.id}`)
       },
       
     ]
@@ -75,7 +81,9 @@ ReactDOM.createRoot(document.getElementById('root')).render(
   <React.StrictMode>
     <AuthProvider>
       <ChakraProvider>
+        <QueryClientProvider client={queryClient} >
     <RouterProvider router={router} />
+        </QueryClientProvider>
       </ChakraProvider>
     </AuthProvider>
   </React.StrictMode>,
