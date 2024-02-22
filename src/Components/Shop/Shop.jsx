@@ -14,7 +14,7 @@ const Menu = () => {
     // Fetch data from the backend
     const fetchData = async () => {
       try {
-        const response = await fetch(`http://localhost:5000/bags`);
+        const response = await fetch(`https://task-backend-sigma.vercel.app/bags`);
         const data = await response.json();
         setMenu(data);
         setFilteredItems(data); // Initially, display all items
