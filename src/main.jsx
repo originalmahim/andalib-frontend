@@ -23,6 +23,7 @@ import {
   QueryClient,
   QueryClientProvider,
 } from '@tanstack/react-query'
+import Chelkout from './Components/Pages/Testing/Chelkout';
 
 const queryClient = new QueryClient();
 const router = createBrowserRouter([
@@ -74,7 +75,11 @@ const router = createBrowserRouter([
   {
     path: '/test',
     element: <Testing></Testing>
-  }
+  },
+  {
+    path: '/chelkout',
+    element: <Chelkout></Chelkout>
+    }
 ]);
 
 ReactDOM.createRoot(document.getElementById('root')).render(

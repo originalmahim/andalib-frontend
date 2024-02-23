@@ -1,0 +1,229 @@
+[
+        
+        {
+          "id": "517",
+          "district_id": "1",
+          "name": "Azimpur",
+          "bn_name": "আজিমপুর"
+        },
+        {
+          "id": "518",
+          "district_id": "1",
+          "name": "Adabor",
+          "bn_name": "আদাবর"
+        },
+        {
+          "id": "519",
+          "district_id": "1",
+          "name": "Ibrahimpur",
+          "bn_name": "ইব্রাহিমপুর"
+        },
+        {
+          "id": "520",
+          "district_id": "1",
+          "name": "Islampur",
+          "bn_name": "ইসলামপুর"
+        },
+        {
+          "id": "520",
+          "district_id": "1",
+          "name": "Uttor Khan",
+          "bn_name": "উওর খান"
+        },
+        {
+          "id": "521",
+          "district_id": "1",
+          "name": "Kolabagan",
+          "bn_name": "কলাবাগান"
+        },
+        {
+          "id": "522",
+          "district_id": "1",
+          "name": "Elephent Road",
+          "bn_name": "এলিফেন্টরোড"
+        },
+        {
+          "id": "523",
+          "district_id": "1",
+          "name": "kakrail",
+          "bn_name": "কাকরাইল"
+        },
+        {
+          "id": "524",
+          "district_id": "1",
+          "name": "komolapur",
+          "bn_name": "কমলাপুর"
+        },
+        {
+          "id": "525",
+          "district_id": "1",
+          "name": "Kaoran Bazar",
+          "bn_name": "কাওরানবাজার"
+        },
+        {
+          "id": "526",
+          "district_id": "1",
+          "name": "Gulistan",
+          "bn_name": "গুলিস্তান"
+        },
+        {
+          "id": "527",
+          "district_id": "1",
+          "name": "Ramna",
+          "bn_name": "রমনা"
+        },
+        {
+          "id": "528",
+          "district_id": "1",
+          "name": "Razarbag",
+          "bn_name": "রাজারবাগ"
+        },
+        {
+          "id": "529",
+          "district_id": "1",
+          "name": "Paltan",
+          "bn_name": "পল্টন"
+        },
+        {
+          "id": "530",
+          "district_id": "1",
+          "name": "Shamoli",
+          "bn_name": "শ্যামলী"
+        },
+        {
+          "id": "531",
+          "district_id": "1",
+          "name": "Sadarghat",
+          "bn_name": "সদরঘাট"
+        },
+        {
+          "id": "532",
+          "district_id": "1",
+          "name": "Shegunbagicha",
+          "bn_name": "সেগুনবাগিচা"
+        },
+        {
+          "id": "533",
+          "district_id": "1",
+          "name": "Shahbag",
+          "bn_name": "শাহবাগ"
+        },
+        {
+          "id": "534",
+          "district_id": "1",
+          "name": "Shahbag",
+          "bn_name": "শাহবাগ"
+        },
+        {
+          "id": "535",
+          "district_id": "1",
+          "name": "Nilkhet",
+          "bn_name": "নীলক্ষেত"
+        },
+        {
+          "id": "536",
+          "district_id": "1",
+          "name": "Niketon",
+          "bn_name": "নিকেতন"
+        },
+        {
+          "id": "537",
+          "district_id": "1",
+          "name": "Nikunjo",
+          "bn_name": "নিকুঞ্জ"
+        },
+        {
+          "id": "538",
+          "district_id": "1",
+          "name": "Motijheel",
+          "bn_name": "মতিঝিল"
+        },
+        {
+          "id": "539",
+          "district_id": "1",
+          "name": "Mogbazar",
+          "bn_name": "মগবাজার"
+        },
+        {
+          "id": "540",
+          "district_id": "1",
+          "name": "Malibag",
+          "bn_name": "মালিবাগ"
+        },
+        {
+          "id": "541",
+          "district_id": "1",
+          "name": "Mugda",
+          "bn_name": "মুগদা"
+        },
+        {
+          "id": "542",
+          "district_id": "1",
+          "name": "Bashabo",
+          "bn_name": "বাসাবো"
+        },
+        {
+          "id": "543",
+          "district_id": "1",
+          "name": "Gabtoli",
+          "bn_name": "গাবতলী"
+        },
+        {
+          "id": "544",
+          "district_id": "1",
+          "name": "Chalkbazar",
+          "bn_name": "চকবাজার"
+        },
+        {
+          "id": "545",
+          "district_id": "1",
+          "name": "Jigatola",
+          "bn_name": "জিগাতলা"
+        },
+        {
+          "id": "546",
+          "district_id": "1",
+          "name": "Tikatuli",
+          "bn_name": "টিকাতুলী"
+        },
+        {
+          "id": "547",
+          "district_id": "1",
+          "name": "Jurain",
+          "bn_name": "জুরাইন"
+        },
+        {
+          "id": "548",
+          "district_id": "1",
+          "name": "Dhanmondi",
+          "bn_name": "ধানমন্ডী"
+        },
+        {
+          "id": "549",
+          "district_id": "1",
+          "name": "Bonosree",
+          "bn_name": "বনশ্রী"
+        },
+        {
+          "id": "550",
+          "district_id": "1",
+          "name": "Firmgate",
+          "bn_name": "ফার্মগেইট"
+        },
+        
+
+
+]
+
+
+
+
+
+
+Dhaka North City Corporation (DNCC) area:
+
+
+Turag
+Uttara
+Dakshinkhan
+Banani
