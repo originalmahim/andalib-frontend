@@ -76,7 +76,10 @@ const Menu = () => {
 
   const paginate = (pageNumber) => setCurrentPage(pageNumber);
 
-  if (isLoading) return <div>Loading...</div>;
+  if (isLoading) return <div className="lg:my-80 my-72 flex items-center justify-center"><span className=" text-xl">Loading</span><span className="loading loading-ball loading-xs"></span>
+  <span className="loading loading-ball loading-sm"></span>
+  <span className="loading loading-ball loading-md"></span>
+  <span className="loading loading-ball loading-lg"></span></div>;
   
   return (
     <div>

@@ -19,7 +19,7 @@ const Chelkout = () => {
 
   // Function to fetch coupon codes from MongoDB
   useEffect(() => {
-    fetch('http://localhost:5000/cupons')
+    fetch('https://task-backend-sigma.vercel.app/cupons')
       .then(response => response.json())
       .then(data => {
         setCouponCodes(data);
@@ -184,7 +184,7 @@ const Chelkout = () => {
               onChange={(e) => setInputCouponCode(e.target.value)} />
                 <button onClick={applyCoupon} className="bg-blue-500 text-white px-4 py-2 rounded-md">Apply</button>
               </div>
-              { cuponMassage && <div className=" bg-yellow-200 text-center w-52 mt-2 p-2 rounded-lg">
+              { cuponMassage && <div className=" bg-yellow-200 text-center w-52 mt-2 p-1 rounded-lg">
               <p>{cuponMassage}</p>
               </div>}
             </div>
