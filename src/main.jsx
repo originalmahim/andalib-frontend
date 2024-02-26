@@ -69,6 +69,11 @@ const router = createBrowserRouter([
         element: <ProductDetails></ProductDetails>,
         loader: ({params}) => fetch(`https://task-backend-sigma.vercel.app/bags/${params.id}`)
       },
+      {
+        path: '/chelkout/:id',
+        element: <Chelkout></Chelkout>,
+        loader: ({params}) => fetch(`https://task-backend-sigma.vercel.app/bags/${params.id}`)
+      }
       
     ]
   },
@@ -76,10 +81,7 @@ const router = createBrowserRouter([
     path: '/test',
     element: <Testing></Testing>
   },
-  {
-    path: '/chelkout',
-    element: <Chelkout></Chelkout>
-    }
+  
 ]);
 
 ReactDOM.createRoot(document.getElementById('root')).render(
