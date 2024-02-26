@@ -61,9 +61,9 @@ const Chelkout = () => {
     if (couponCodes.find(coupon => coupon.code === inputCouponCode)) {
       setCouponApplied(inputCouponCode);
       calculateTotalPrice();
-      console.log("Coupon code applied successfully.");
+      setCuponMassage("Applied successfully.");
     } else {
-      console.log("Invalid coupon code.");
+      setCuponMassage("Invalid coupon code.");
     }
   };
 
@@ -184,6 +184,9 @@ const Chelkout = () => {
               onChange={(e) => setInputCouponCode(e.target.value)} />
                 <button onClick={applyCoupon} className="bg-blue-500 text-white px-4 py-2 rounded-md">Apply</button>
               </div>
+              { cuponMassage && <div className=" bg-yellow-200 text-center w-52 mt-2 p-2 rounded-lg">
+              <p>{cuponMassage}</p>
+              </div>}
             </div>
           </div>
         </div>
