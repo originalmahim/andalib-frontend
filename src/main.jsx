@@ -24,6 +24,7 @@ import {
   QueryClientProvider,
 } from '@tanstack/react-query'
 import Chelkout from './Components/Pages/Testing/Chelkout';
+import Thankyou from './Components/Pages/Testing/Thankyou';
 
 const queryClient = new QueryClient();
 const router = createBrowserRouter([
@@ -73,6 +74,10 @@ const router = createBrowserRouter([
         path: '/chelkout/:id',
         element: <Chelkout></Chelkout>,
         loader: ({params}) => fetch(`https://task-backend-sigma.vercel.app/bags/${params.id}`)
+      },
+      {
+        path: '/thankyou',
+        element: <Thankyou></Thankyou>
       }
       
     ]
