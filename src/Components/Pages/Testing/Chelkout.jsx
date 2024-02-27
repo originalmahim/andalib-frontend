@@ -10,6 +10,7 @@ const Chelkout = () => {
   const [selectedDistrict, setSelectedDistrict] = useState('');
   const [selectedUpazila, setSelectedUpazila] = useState('');
   const [totalPrice, setTotalPrice] = useState(0);
+  const [discountedPrice, setDiscountedPrice] = useState(0); // New state variable for discounted price
   const [couponApplied, setCouponApplied] = useState(false);
   const [inputCouponCode, setInputCouponCode] = useState("");
   const [cuponMassage, setCuponMassage] = useState('')
@@ -46,12 +47,18 @@ const Chelkout = () => {
     const productPrice = parseFloat(informaton?.price) || 0;
     const deliveryCharge = 100;
     const totalItems = 1;
-    let totalAmount = totalItems * productPrice + deliveryCharge;
 
+    let totalAmount = totalItems * productPrice + deliveryCharge;
+    let getDiscaunt = totalItems * productPrice + deliveryCharge;
     if (couponApplied && couponCodes.find(coupon => coupon.code === couponApplied)) {
       const discountPercentage = couponCodes.find(coupon => coupon.code === couponApplied).discount;
       const discountAmount = (totalAmount * discountPercentage) / 100;
       totalAmount -= discountAmount;
+     const  afterDiscaunt = getDiscaunt - totalAmount;
+      // Set discounted price
+      setDiscountedPrice(afterDiscaunt);
+    } else {
+      console.log('');
     }
 
     setTotalPrice(totalAmount.toFixed(0)); // Adjusted toFixed() to round to 2 decimal places
@@ -175,6 +182,14 @@ const Chelkout = () => {
                 <p className="text-xl font-semibold leading-4 text-gray-800">Total Amount </p>
                 <p className="text-lg font-semibold leading-4 text-gray-800">{totalPrice}</p>
               </div>
+
+              {/* Display discounted amount */}
+              {discountedPrice !== totalPrice && (
+                <div className="flex justify-between w-full items-center mt-3">
+                  <p className="text-xl font-semibold leading-4 text-gray-800">Discounted Amount </p>
+                  <p className="text-lg font-semibold leading-4 text-gray-800">{discountedPrice}</p>
+                </div>
+              )}
             </div>
           
             <div className=" mt-4 w-full items-center">
@@ -196,3 +211,4 @@ const Chelkout = () => {
 };
 
 export default Chelkout;
+
