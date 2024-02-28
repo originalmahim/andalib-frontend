@@ -1,7 +1,9 @@
 import { useEffect, useState } from "react";
 import districtsData from './../../../../public/districts.json';
 import upazilasData from './../../../../public/upazilas.json';
-import { Link, useLoaderData } from "react-router-dom";
+import { Link, useLoaderData, useNavigate } from "react-router-dom";
+import axios from "axios";
+import Swal from "sweetalert2";
 
 const Chelkout = () => {
   
@@ -76,6 +78,7 @@ const Chelkout = () => {
 
   const handleConfirmOrder = () => {
     // Gather all information and log to console
+    const navigate = useNavigate;
     const shippingDetails = {
       fullName: document.getElementById('fullName').value,
       phoneNumber: document.getElementById('phoneNumber').value,
@@ -85,6 +88,18 @@ const Chelkout = () => {
       paymentOption: document.querySelector('input[name="payment_option"]:checked').value
     };
     console.log(shippingDetails);
+    axios.post('https://task-backend-sigma.vercel.app/totalusers', shippingDetails)
+    .then(res => {
+      if (res.data.insertedId) {
+          Swal.fire({
+              icon: 'success',
+              title: 'You have ordered product Successfully ',
+              showConfirmButton: false,
+              timer: 1500
+          });
+          navigate('/thankyou');
+      }
+  })
   };
 
   return (

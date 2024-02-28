@@ -29,7 +29,7 @@ const Login = () => {
         JoinedDate: "21 Feb 2024",
         status:"Member"
     }
-     axios.post('http://localhost:5000/totalusers', userInfo)
+     axios.post('https://task-backend-sigma.vercel.app/totalusers', userInfo)
      .then(res => {
       if (res.data.insertedId) {
           Swal.fire({
