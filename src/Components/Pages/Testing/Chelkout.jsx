@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 import districtsData from './../../../../public/districts.json';
 import upazilasData from './../../../../public/upazilas.json';
-import { Link, useLoaderData, useNavigate } from "react-router-dom";
+import {  useLoaderData, useNavigate } from "react-router-dom";
 import axios from "axios";
 import Swal from "sweetalert2";
 
@@ -16,7 +16,7 @@ const Chelkout = () => {
   const [couponApplied, setCouponApplied] = useState(false);
   const [inputCouponCode, setInputCouponCode] = useState("");
   const [cuponMassage, setCuponMassage] = useState('')
-
+  const navigate = useNavigate();
   const districts = districtsData.districts;
   const upazilas = upazilasData.upazilas;
 
@@ -78,7 +78,7 @@ const Chelkout = () => {
 
   const handleConfirmOrder = () => {
     // Gather all information and log to console
-    const navigate = useNavigate;
+    
     const shippingDetails = {
       fullName: document.getElementById('fullName').value,
       phoneNumber: document.getElementById('phoneNumber').value,
@@ -87,8 +87,7 @@ const Chelkout = () => {
       address: document.getElementById('address').value,
       paymentOption: document.querySelector('input[name="payment_option"]:checked').value
     };
-    console.log(shippingDetails);
-    axios.post('https://task-backend-sigma.vercel.app/totalusers', shippingDetails)
+    axios.post('https://task-backend-sigma.vercel.app/orders', shippingDetails)
     .then(res => {
       if (res.data.insertedId) {
           Swal.fire({
