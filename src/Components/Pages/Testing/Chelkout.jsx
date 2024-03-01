@@ -1,12 +1,11 @@
-import { useEffect, useState } from "react";
+import  { useEffect, useState } from "react";
 import districtsData from './../../../../public/districts.json';
 import upazilasData from './../../../../public/upazilas.json';
 import {  useLoaderData, useNavigate } from "react-router-dom";
 import axios from "axios";
 import Swal from "sweetalert2";
 
-const Chelkout = () => {
-  
+const Checkout = () => {
   const [couponCodes, setCouponCodes] = useState([]);
   const informaton = useLoaderData();
   const [selectedDistrict, setSelectedDistrict] = useState('');
@@ -15,7 +14,10 @@ const Chelkout = () => {
   const [discountedPrice, setDiscountedPrice] = useState(''); 
   const [couponApplied, setCouponApplied] = useState(false);
   const [inputCouponCode, setInputCouponCode] = useState("");
-  const [cuponMassage, setCuponMassage] = useState('')
+  const [cuponMessage, setCuponMessage] = useState('');
+  const [fullName, setFullName] = useState('');
+  const [phoneNumber, setPhoneNumber] = useState('');
+  const [address, setAddress] = useState('');
   const navigate = useNavigate();
   const districts = districtsData.districts;
   const upazilas = upazilasData.upazilas;
@@ -32,15 +34,6 @@ const Chelkout = () => {
       });
   }, []);
 
-  const handleDistrictChange = (e) => {
-    setSelectedDistrict(e.target.value);
-    setSelectedUpazila('');
-  };
-
-  const handleUpazilaChange = (e) => {
-    setSelectedUpazila(e.target.value);
-  };
-
   useEffect(() => {
     calculateTotalPrice();
   }, [selectedDistrict, selectedUpazila, informaton, couponApplied]);
@@ -51,54 +44,60 @@ const Chelkout = () => {
     const totalItems = 1;
 
     let totalAmount = totalItems * productPrice + deliveryCharge;
-    let getDiscaunt = totalItems * productPrice + deliveryCharge;
+    let getDiscount = totalItems * productPrice + deliveryCharge;
     if (couponApplied && couponCodes.find(coupon => coupon.code === couponApplied)) {
       const discountPercentage = couponCodes.find(coupon => coupon.code === couponApplied).discount;
       const discountAmount = (totalAmount * discountPercentage) / 100;
       totalAmount -= discountAmount;
-      const afterDiscaunt = getDiscaunt - totalAmount;
+      const afterDiscount = getDiscount - totalAmount;
       // Set discounted price
-      setDiscountedPrice(afterDiscaunt.toFixed(0));
-    } else {
-      console.log('');
+      setDiscountedPrice(afterDiscount.toFixed(0));
     }
 
-    setTotalPrice(totalAmount.toFixed(0)); // Adjusted toFixed() to round to 2 decimal places
+    setTotalPrice(totalAmount.toFixed(0));
   };
 
   const applyCoupon = () => {
     if (couponCodes.find(coupon => coupon.code === inputCouponCode)) {
       setCouponApplied(inputCouponCode);
       calculateTotalPrice();
-      setCuponMassage("Applied successfully.");
+      setCuponMessage("Coupon applied successfully.");
     } else {
-      setCuponMassage("Invalid coupon code.");
+      setCuponMessage("Invalid coupon code.");
     }
   };
 
   const handleConfirmOrder = () => {
-    // Gather all information and log to console
-    
+    if (!fullName || !phoneNumber || !selectedDistrict || !selectedUpazila || !address ) {
+      return alert("Please fill in all required fields.");
+    }
+
     const shippingDetails = {
-      fullName: document.getElementById('fullName').value,
-      phoneNumber: document.getElementById('phoneNumber').value,
+      fullName,
+      phoneNumber,
       district: selectedDistrict,
       upazila: selectedUpazila,
-      address: document.getElementById('address').value,
-      paymentOption: document.querySelector('input[name="payment_option"]:checked').value
+      address,
+      totalPrice,
+      discountedPrice,
+
     };
+    
     axios.post('https://task-backend-sigma.vercel.app/orders', shippingDetails)
-    .then(res => {
-      if (res.data.insertedId) {
+      .then(res => {
+        if (res.data.insertedId) {
           Swal.fire({
-              icon: 'success',
-              title: 'You have ordered product Successfully ',
-              showConfirmButton: false,
-              timer: 1500
+            icon: 'success',
+            title: 'You have ordered the product successfully',
+            showConfirmButton: false,
+            timer: 1500
           });
           navigate('/thankyou');
-      }
-  })
+        }
+      })
+      .catch(error => {
+        console.error('Error confirming order:', error);
+      });
   };
 
   return (
@@ -118,20 +117,14 @@ const Chelkout = () => {
               <p className="text-xl font-semibold leading-5 text-gray-800">Shipping Details</p>
             </div>
             <div className="mt-8 flex flex-col justify-start items-start w-full space-y-2 ">
-              <input required id="fullName" className="px-2 focus:outline-none focus:ring-2 focus:ring-gray-500 border-b border-gray-200 leading-4 text-base  placeholder-gray-600 py-4 w-full" type="text" placeholder="আপনার সম্পুর্ন নাম লিখুন *" />
-              <input required id="phoneNumber" className="px-2 focus:outline-none focus:ring-2 focus:ring-gray-500 border-b border-gray-200 leading-4 text-base placeholder-gray-600 py-4 w-full" type="text" placeholder="আপনার মোবাইল নাম্বার লিখুন *" />
+              <input required id="fullName" value={fullName} onChange={(e) => setFullName(e.target.value)} className="px-2 focus:outline-none focus:ring-2 focus:ring-gray-500 border-b border-gray-200 leading-4 text-base  placeholder-gray-600 py-4 w-full" type="text" placeholder="আপনার সম্পুর্ন নাম লিখুন *" />
+              <input type='number' required id="phoneNumber" value={phoneNumber} onChange={(e) => setPhoneNumber(e.target.value)} className="px-2 focus:outline-none focus:ring-2 focus:ring-gray-500 border-b border-gray-200 leading-4 text-base placeholder-gray-600 py-4 w-full"  placeholder="আপনার মোবাইল নাম্বার লিখুন *" />
             </div>
             <div className="py-2 mt-2">
               <div className=" flex items-center justify-between gap-8">
                 <div>
                   <label htmlFor="district" className="block font-medium">জেলা :</label>
-                  <select
-                    id="district"
-                    required
-                    className="block w-full p-2 border border-gray-300 rounded"
-                    value={selectedDistrict}
-                    onChange={handleDistrictChange}
-                  >
+                  <select id="district" required className="block w-full p-2 border border-gray-300 rounded" value={selectedDistrict} onChange={(e) => setSelectedDistrict(e.target.value)}>
                     <option value="">Select </option>
                     {districts.map(district => (
                       <option key={district.id} value={district.id}>{district.bn_name}</option>
@@ -140,14 +133,7 @@ const Chelkout = () => {
                 </div>
                 <div className="">
                   <label htmlFor="upazila" className="block font-medium">এরিয়া/থানা :</label>
-                  <select
-                    id="upazila"
-                    required
-                    className="block w-full p-2 border border-gray-300 rounded"
-                    value={selectedUpazila}
-                    onChange={handleUpazilaChange}
-                    disabled={!selectedDistrict}
-                  >
+                  <select id="upazila" required className="block w-full p-2 border border-gray-300 rounded" value={selectedUpazila} onChange={(e) => setSelectedUpazila(e.target.value)} disabled={!selectedDistrict}>
                     <option value="">Select</option>
                     {upazilas.filter(upazila => upazila.district_id === selectedDistrict).map(filteredUpazila => (
                       <option key={filteredUpazila.id} value={filteredUpazila.id}>{filteredUpazila.bn_name}</option>
@@ -156,30 +142,19 @@ const Chelkout = () => {
                 </div>
               </div>
             </div>
-            <input 
-              required 
-              id="address"
-              className="px-2 focus:outline-none focus:ring-2 focus:ring-gray-500 border-b border-gray-200 leading-4 text-base placeholder-gray-600 py-4 w-full" 
-              type="text" 
-              placeholder="আপনার সম্পুর্ন ঠিকানা লিখুন *"
-            />
+            <input required id="address" value={address} onChange={(e) => setAddress(e.target.value)} className="px-2 focus:outline-none focus:ring-2 focus:ring-gray-500 border-b border-gray-200 leading-4 text-base placeholder-gray-600 py-4 w-full" type="text" placeholder="আপনার সম্পুর্ন ঠিকানা লিখুন *" />
             {/* Payment Options */}
             <div className="mt-4">
-              <p className="text-lg font-medium text-gray-800 mb-2">Payment Options:</p>
+              <p className="text-lg font-medium text-gray-800 mb-2">Payment Option:</p>
               <div className="lg:flex items-center justify-center lg:space-x-4">
                 {/* Cash on Delivery */}
                 <div className="flex items-center">
-                  <input type="radio" id="cash_on_delivery" name="payment_option" value="cash_on_delivery"  />
-                  <label htmlFor="cash_on_delivery" className="ml-2 cursor-pointer">Cash on Delivery</label>
+                  <label  className="ml-2 cursor-pointer">Cash on Delivery</label>
                 </div>
-                {/* Pay with Bkash/Nagad */}
-                <div className="flex items-center">
-                  <input type="radio" id="bkash_nagad" name="payment_option" value="bkash_nagad"  />
-                  <label htmlFor="bkash_nagad" className="ml-2 cursor-pointer">Pay with Bkash/Nagad</label>
-                </div>
+                
               </div>
             </div>
-            <button onClick={handleConfirmOrder} className="focus:outline-none focus:ring-2 focus:ring-gray-500 focus:ring-offset-2 mt-8 text-base font-medium text-center  focus:ring-ocus:ring-gray-800 leading-4 hover:bg-black py-4 w-full md:w-4/12 lg:w-full text-white bg-gray-800" >
+            <button  disabled={!fullName || !phoneNumber || !selectedDistrict || !selectedUpazila || !address}  onClick={handleConfirmOrder} className="focus:outline-none focus:ring-2 focus:ring-gray-500 focus:ring-offset-2 mt-8 text-base font-medium text-center  focus:ring-ocus:ring-gray-800 leading-4 hover:bg-black py-4 w-full md:w-4/12 lg:w-full text-white bg-gray-800 disabled:bg-red-600" >
               Confirm Order
             </button>
           </div>
@@ -188,29 +163,24 @@ const Chelkout = () => {
               <h1 className="text-2xl font-semibold leading-6 text-gray-800">Order Summary</h1>
             </div>
             <div className="flex mt-7 flex-col items-end w-full space-y-6">
-              
               <div className="flex items-center w-full space-x-4">
                 <img src="https://aodour.oss-ap-southeast-1.aliyuncs.com/globalProduct/2022-09-27/O1CN013aHnar1UkEhIdBGNl_!!2348622555-0-cib.jpg" alt="Product Image" className="w-16 h-16 object-cover rounded-md" />
                 <div>
                   <p className="text-lg font-semibold leading-4 text-gray-800">{informaton?.name} x 1 </p>
                 </div>
               </div>
-              
               <div className="flex justify-between w-full items-center">
                 <p className="text-lg leading-4 text-gray-600">Product Price</p>
                 <p className="text-lg font-semibold leading-4 text-gray-600">{informaton?.price}</p>
               </div>
-              
               <div className="flex justify-between w-full items-center">
                 <p className="text-lg leading-4 text-gray-600">Delivery Charge</p>
                 <p className="text-lg font-semibold leading-4 text-gray-600">100</p>
               </div>
-             
               <div className="flex justify-between w-full items-center mt-3">
                 <p className="text-xl font-semibold leading-4 text-gray-800">Total Amount </p>
                 <p className="text-lg font-semibold leading-4 text-gray-800">{totalPrice}</p>
               </div>
-
               {/* Display discounted amount */}
               {discountedPrice  && (
                 <div className="flex justify-between w-full items-center mt-3">
@@ -219,16 +189,14 @@ const Chelkout = () => {
                 </div>
               )}
             </div>
-          
             <div className=" mt-4 w-full items-center">
               <p className=" font-bold mb-2">Have a Coupon Code?</p>
               <div className="flex items-center justify-between">
-                <input type="text" placeholder="Enter Coupon Code" className="border border-gray-300 px-4 py-2 rounded-md focus:outline-none focus:border-blue-500" value={inputCouponCode}
-              onChange={(e) => setInputCouponCode(e.target.value)} />
+                <input type="text" placeholder="Enter Coupon Code" className="border border-gray-300 px-4 py-2 rounded-md focus:outline-none focus:border-blue-500" value={inputCouponCode} onChange={(e) => setInputCouponCode(e.target.value)} />
                 <button onClick={applyCoupon} className="bg-blue-500 text-white px-4 py-2 rounded-md">Apply</button>
               </div>
-              { cuponMassage && <div className=" bg-yellow-200 text-center w-52 mt-2 p-1 rounded-lg">
-              <p>{cuponMassage}</p>
+              { cuponMessage && <div className=" bg-yellow-200 text-center w-52 mt-2 p-1 rounded-lg">
+                <p>{cuponMessage}</p>
               </div>}
             </div>
           </div>
@@ -238,4 +206,5 @@ const Chelkout = () => {
   );
 };
 
-export default Chelkout;
+export default Checkout;
+
