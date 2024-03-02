@@ -75,6 +75,8 @@ const Checkout = () => {
     const shippingDetails = {
       fullName,
       phoneNumber,
+      productName:informaton?.name,
+      productPrice:informaton?.price,
       district: selectedDistrict,
       upazila: selectedUpazila,
       address,
@@ -103,16 +105,9 @@ const Checkout = () => {
   return (
     <div className="overflow-y-hidden">
       <div className="flex justify-center items-center 2xl:container 2xl:mx-auto lg:py-16 md:py-12 py-9 px-4 md:px-6 lg:px-20 xl:px-44 ">
-        <div className="flex w-full sm:w-9/12 lg:w-full flex-col lg:flex-row justify-center items-center lg:space-x-10 2xl:space-x-36 space-y-12 lg:space-y-0">
+        <div className="flex  w-full sm:w-9/12 lg:w-full flex-col-reverse lg:flex-row justify-center items-center lg:space-x-10 2xl:space-x-36 space-y-12 lg:space-y-0">
           <div className="flex w-full  flex-col justify-start items-start">
-            <div>
-              <p className="text-3xl lg:text-4xl font-semibold leading-7 lg:leading-9 text-gray-800">Check out</p>
-            </div>
-            <div className="mt-2">
-              <a href="javascript:void(0)" className="text-base leading-4 underline  hover:text-gray-800 text-gray-600">
-                Back to Shop
-              </a>
-            </div>
+            
             <div className="mt-12">
               <p className="text-xl font-semibold leading-5 text-gray-800">Shipping Details</p>
             </div>
@@ -149,14 +144,17 @@ const Checkout = () => {
               <div className="lg:flex items-center justify-center lg:space-x-4">
                 {/* Cash on Delivery */}
                 <div className="flex items-center">
-                  <label  className="ml-2 cursor-pointer">Cash on Delivery</label>
+                  <label  className="ml-2 font-bold cursor-pointer text-green-400">Cash on Delivery</label>
                 </div>
                 
               </div>
             </div>
-            <button  disabled={!fullName || !phoneNumber || !selectedDistrict || !selectedUpazila || !address}  onClick={handleConfirmOrder} className="focus:outline-none focus:ring-2 focus:ring-gray-500 focus:ring-offset-2 mt-8 text-base font-medium text-center  focus:ring-ocus:ring-gray-800 leading-4 hover:bg-black py-4 w-full md:w-4/12 lg:w-full text-white bg-gray-800 disabled:bg-red-600" >
-              Confirm Order
+            <button id="Confirm_Order"  disabled={!fullName || !phoneNumber || !selectedDistrict || !selectedUpazila || !address}  onClick={handleConfirmOrder} className="focus:outline-none focus:ring-2 focus:ring-gray-500 focus:ring-offset-2 mt-8 text-base font-medium text-center  focus:ring-ocus:ring-gray-800 leading-4 hover:bg-black py-4 w-full md:w-4/12 lg:w-full text-white bg-gray-800 disabled:bg-red-600" >
+              Place Order
             </button>
+            <div className="lg:hidden text-green-400 mt-5 text-center ">
+              <p>Call 01585753020 if you have any problem to order. 09:30 AM to 7:30 PM.</p>
+            </div>
           </div>
           <div className="flex flex-col justify-start items-start bg-gray-50 w-full p-6 md:p-14">
             <div>
