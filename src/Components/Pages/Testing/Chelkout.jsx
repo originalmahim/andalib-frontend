@@ -4,8 +4,10 @@ import upazilasData from './../../../../public/upazilas.json';
 import {  useLoaderData, useNavigate } from "react-router-dom";
 import axios from "axios";
 import Swal from "sweetalert2";
+import moment from "moment";
 
 const Checkout = () => {
+  
   const [couponCodes, setCouponCodes] = useState([]);
   const informaton = useLoaderData();
   const [selectedDistrict, setSelectedDistrict] = useState('');
@@ -79,6 +81,7 @@ const Checkout = () => {
       productPrice:informaton?.price,
       district: selectedDistrict,
       upazila: selectedUpazila,
+      invoiceDate:moment().format('Do MMM YYYY'),
       address,
       totalPrice,
       discountedPrice,
