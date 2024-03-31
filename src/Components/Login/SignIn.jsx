@@ -2,7 +2,7 @@ import { useContext, useState } from 'react';
 import { FcGoogle } from 'react-icons/fc';
 import { Link, useLocation, useNavigate } from 'react-router-dom';
 import { GoogleAuthProvider, getAuth, signInWithPopup } from 'firebase/auth';
-import Swal from 'sweetalert2';
+import toast from 'react-hot-toast';
 import axios from 'axios';
 import { Helmet } from 'react-helmet';
 import { AuthContex } from '../Providers/Authprovider';
@@ -32,12 +32,7 @@ const Login = () => {
      axios.post('https://task-backend-sigma.vercel.app/totalusers', userInfo)
      .then(res => {
       if (res.data.insertedId) {
-          Swal.fire({
-              icon: 'success',
-              title: 'Loged In successfully.',
-              showConfirmButton: false,
-              timer: 1500
-          });
+        toast.success("Sign In with Google Successfully");
           navigate('/');
       }
   })
@@ -53,12 +48,7 @@ const Login = () => {
   LogIn(email,password)
   .then(() => {
     navigate(location?.state ? location.state : '/');
-    Swal.fire({
-      icon: 'success',
-      title: 'Loged In ',
-      showConfirmButton: false,
-      timer: 1500
-  });
+    toast.success("Loged In Successfully");
   })
   .catch(error => {
     setLoginError(error.message)

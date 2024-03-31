@@ -5,7 +5,6 @@ import Footer from "./Footer";
 import { FaRegUser } from "react-icons/fa";
 import { useContext, useEffect, useState } from "react";
 import logo from './../../assets/logo.png'
-import Swal from "sweetalert2";
 import { AuthContex } from "../Providers/Authprovider";
 import Component from "../Home/Modal";
 import { CiShop } from "react-icons/ci";
@@ -24,6 +23,7 @@ import {
   
 } from '@chakra-ui/react'
 import Login from "../Login/SignIn";
+import toast, { Toaster } from "react-hot-toast";
 
 const Header = () => {
 
@@ -66,14 +66,12 @@ const Header = () => {
   const handleLogOut = () => {
             LogOut()
             .then(() => {
-              Swal.fire({
-                icon: 'success',
-                title: 'Loged out',
-                showConfirmButton: false,
-                timer: 1500
-            });
-            navigate('/');
+              toast.success('Successfully logged out!');
+              navigate('/');
             })
+            .catch((error) => {
+              toast.error('Logout failed: ' + error.message);
+            });
           }
 
   const [isStickey, setStickey] = useState(false);
@@ -136,6 +134,7 @@ const Header = () => {
 
   return (
     <div className="" >
+      <div><Toaster/></div>
       <div className={`fixed top-0 right-0 left-0 bg-white  transition-all duration-300 z-10  ease-in-out ${isStickey ? ' shadow-md bg-base-100 transition-all duration-300 ease-in-out ' : ''}`}>
         <Component></Component>
         <div className="navbar xl:px-24 max-w-screen-2xl container mx-auto">
@@ -291,10 +290,13 @@ const Header = () => {
           </div>
         </div>
       )}
-      {info?.status !== "Member" && (
+      
+      <div className="divide-y">
+        <ul className="pt-2 pb-4 space-y-1 text-sm">
+        {info?.status !== "Member" && (
                 
                 <li>
-                  <a className="text-[16px] mr-40 flex items-center p-2  rounded-md" href='https://dashboard.andalib.xyz' >  <svg
+                  <a className="text-[16px]  mr-40 flex items-center p-2  rounded-md" href='https://dashboard.andalib.xyz' >  <svg
                           className="fill-current"
                           width="18"
                           height="18"
@@ -322,8 +324,6 @@ const Header = () => {
                 </li>
                 
             )}
-      <div className="divide-y">
-        <ul className="pt-2 pb-4 space-y-1 text-sm">
           <li className="rounded-sm">
             <a rel="noopener noreferrer" href="/" className="flex items-center p-2 space-x-3 rounded-md">
               <FaRegUser className="text-xl font-semibold" />
