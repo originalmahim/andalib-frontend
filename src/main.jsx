@@ -25,6 +25,8 @@ import {
 } from '@tanstack/react-query'
 import Chelkout from './Components/Pages/Testing/Chelkout';
 import Thankyou from './Components/Pages/Testing/Thankyou';
+import PaymentSuccess from './Components/Pages/Testing/PaymentSuccess';
+import PaymentCancel from './Components/Pages/Testing/PaymentCancel';
 
 const queryClient = new QueryClient();
 const router = createBrowserRouter([
@@ -78,6 +80,14 @@ const router = createBrowserRouter([
       {
         path: '/thankyou',
         element: <Thankyou></Thankyou>
+      },
+      {
+        path: '/Payment/Successfull',
+        element: <PaymentSuccess></PaymentSuccess>
+      },
+      {
+        path: '/Payment/Cancelled',
+        element: <PaymentCancel></PaymentCancel>
       }
       
     ]

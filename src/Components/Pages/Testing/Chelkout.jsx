@@ -6,6 +6,7 @@ import axios from "axios";
 import Swal from "sweetalert2";
 import moment from "moment";
 import { AuthContex } from "../../Providers/Authprovider";
+import toast from "react-hot-toast";
 
 const Checkout = () => {
   
@@ -111,8 +112,8 @@ const Checkout = () => {
     try {
       e.preventDefault();
       const payInfo = {
-        full_name: user?.displayName,
-        email: user?.email,
+        full_name: user?.displayName ? user?.displayName : fullName,
+        email: user?.email ? user?.email : 'tareqazizmahim@gmail.com',
         amount: totalPrice,
       };
       if (payOption === "sslcommarz") {
@@ -123,16 +124,19 @@ const Checkout = () => {
 //         console.log(res.data.url);
       } 
       else if (payOption === "uddoktapay") {
-        console.log("uddoktapay");
         axios.post("http://localhost:5000/payment", payInfo)
           .then(res => {
             console.log("Response from server:", res.data);
             if (res.data.payment_url) {
               window.location.href = res.data.payment_url;
             }
+            else{
+              toast.error("Please Select Another Payment Getway")
+            }
           })
           .catch(error => {
-            console.error("Error initiating payment:", error);
+            toast.error(`Please Select Another Payment Getway`)
+            console.log(error);
           });
       }
       
