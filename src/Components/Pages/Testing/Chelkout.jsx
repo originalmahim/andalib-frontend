@@ -124,7 +124,7 @@ const Checkout = () => {
 //         console.log(res.data.url);
       } 
       else if (payOption === "uddoktapay") {
-        axios.post("http://localhost:5000/payment", payInfo)
+        axios.post("https://task-backend-sigma.vercel.app/payment", payInfo)
           .then(res => {
             console.log("Response from server:", res.data);
             if (res.data.payment_url) {
@@ -141,7 +141,6 @@ const Checkout = () => {
       }
       
       else if (payOption === "cashonDelivery") {
-        console.log("Inside if block"); // Debugging message
         handleConfirmOrder();
     }
        else {
@@ -213,8 +212,9 @@ const Checkout = () => {
                   htmlFor="cashonDelivery"
                   className="inline-flex items-center justify-between w-full p-5 text-gray-500 bg-white border border-gray-200 rounded-lg cursor-pointer dark:hover:text-gray-300 dark:border-gray-700 dark:peer-checked:text-blue-500 peer-checked:border-green-600 peer-checked:text-green-600 hover:text-gray-600 hover:bg-gray-100 dark:text-gray-400 dark:bg-gray-800 dark:hover:bg-gray-700"
                 >
-                  <div className="block">
-                    <div className="w-full text-lg font-semibold">Cash On Delivary</div>
+                  <div className="">
+                    <div className=" items-center justify-center"><img className="w-28 " src="https://i.ibb.co/FVhTv93/COD-old-be33662.png"  /> </div>
+                    
                   </div>
                   <svg
                     className="w-5 h-5 ms-3 rtl:rotate-180"
@@ -233,7 +233,7 @@ const Checkout = () => {
                   </svg>
                 </label>
               </li>
-              <li>
+              <li className="hidden" >
                 <input
                   type="radio"
                   id="sslcommarz"
@@ -279,13 +279,13 @@ const Checkout = () => {
                 />
                 <label
                   htmlFor="uddoktapay"
-                  className="inline-flex items-center justify-between w-full p-5 text-gray-500 bg-white border border-gray-200 rounded-lg cursor-pointer dark:hover:text-gray-300 dark:border-gray-700 dark:peer-checked:text-blue-500 peer-checked:border-green-600 peer-checked:text-green-600 hover:text-gray-600 hover:bg-gray-100 dark:text-gray-400 dark:bg-gray-800 dark:hover:bg-gray-700"
+                  className="inline-flex items-center justify-between w-full p-5 text-gray-500 bg-white border border-gray-200 rounded-lg cursor-pointer dark:hover:text-gray-300 dark:border-gray-700 dark:peer-checked:text-blue-500 peer-checked:border-green-600 peer-checked:text-green-600 hover:text-gray-600 hover:bg-white dark:text-gray-400 dark:bg-white dark:hover:bg-white"
                 >
                   <div className="block">
-                    <div className="w-full text-lg font-semibold">Uddokta Pay</div>
+                  <div className=" items-center justify-center"><img className="w-72 lg:w-full" src="https://i.ibb.co/ccmZMSv/Online.jpg"  /> </div>
                   </div>
                   <svg
-                    className="w-5 h-5 ms-3 rtl:rotate-180"
+                    className="w-5 lg:w-24 h-5 ms-3 rtl:rotate-180"
                     aria-hidden="true"
                     xmlns="http://www.w3.org/2000/svg"
                     fill="none"
