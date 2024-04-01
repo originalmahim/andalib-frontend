@@ -7,6 +7,7 @@ import axios from 'axios';
 import { Helmet } from 'react-helmet';
 import { AuthContex } from '../Providers/Authprovider';
 import app from '../Shared/firebase.config';
+import moment from 'moment';
 
 
 const Login = () => {
@@ -26,7 +27,7 @@ const Login = () => {
       const userInfo = {
         email: result.user?.email,
         name: result.user?.displayName,
-        JoinedDate: "21 Feb 2024",
+        JoinedDate: moment().format('Do MMM YYYY'),
         status:"Member"
     }
      axios.post('https://task-backend-sigma.vercel.app/totalusers', userInfo)

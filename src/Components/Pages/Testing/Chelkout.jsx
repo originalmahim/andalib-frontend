@@ -282,7 +282,7 @@ const Checkout = () => {
                   className="inline-flex items-center justify-between w-full p-5 text-gray-500 bg-white border border-gray-200 rounded-lg cursor-pointer dark:hover:text-gray-300 dark:border-gray-700 dark:peer-checked:text-blue-500 peer-checked:border-green-600 peer-checked:text-green-600 hover:text-gray-600 hover:bg-white dark:text-gray-400 dark:bg-white dark:hover:bg-white"
                 >
                   <div className="block">
-                  <div className=" items-center justify-center"><img className="w-72 lg:w-full" src="https://i.ibb.co/ccmZMSv/Online.jpg"  /> </div>
+                  <div className=" items-center justify-center"><img className="w-72 lg:w-96" src="https://i.ibb.co/ccmZMSv/Online.jpg"  /> </div>
                   </div>
                   <svg
                     className="w-5 lg:w-24 h-5 ms-3 rtl:rotate-180"

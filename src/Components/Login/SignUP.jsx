@@ -4,11 +4,12 @@ import { Link, useNavigate } from "react-router-dom";
 import {  useContext, useState } from 'react';
 import { AiFillEye,AiFillEyeInvisible } from 'react-icons/ai';
 import { GoogleAuthProvider, getAuth, signInWithPopup, updateProfile } from 'firebase/auth';
-import Swal from 'sweetalert2'
 import axios from 'axios';
 import { Helmet } from 'react-helmet';
 import { AuthContex } from '../Providers/Authprovider';
 import app from '../Shared/firebase.config';
+import moment from 'moment';
+import toast from 'react-hot-toast';
 
 
 const SignUp = () => {
@@ -27,18 +28,14 @@ const SignUp = () => {
       const userInfo = {
         email: result.user?.email,
         name: result.user?.displayName,
-        JoinedDate: "21 Feb 2024",
+        JoinedDate: moment().format('Do MMM YYYY'),
         status:"Member"
     }
     axios.post('https://task-backend-sigma.vercel.app/totalusers', userInfo)
     .then(res => {
+      console.log(res.data);
       if (res.data.insertedId) {
-          Swal.fire({
-              icon: 'success',
-              title: 'Loged In ',
-              showConfirmButton: false,
-              timer: 1500
-          });
+        toast.success("Account created successfully.");
           navigate('/');
       }
   })
@@ -69,18 +66,14 @@ const SignUp = () => {
             const userInfo = {
               email: email,
               name: name,
-        JoinedDate: "21 Feb 2024",
+        JoinedDate: moment().format('Do MMM YYYY'),
         status:"Member"
           }
-          axios.post('http://localhost:5000/totalusers', userInfo)
+          axios.post('https://task-backend-sigma.vercel.app/totalusers', userInfo)
           .then(res => {
+            console.log(res.data);
             if (res.data.insertedId) {
-                Swal.fire({
-                    icon: 'success',
-                    title: 'Account created successfully.',
-                    showConfirmButton: false,
-                    timer: 1500
-                });
+                toast.success("Account created successfully.");
                 navigate('/');
             }
         })
