@@ -1,5 +1,6 @@
 import { FaArrowRight } from "react-icons/fa";
 import banner from './../../assets/banner.png'
+import { Link } from "react-router-dom";
 const Bannee = () => {
           return (
           <div className="bg-gradient-to-r from-[#FAFAFA] from-0% to-[#FCFCFC] to-100%">
@@ -10,7 +11,7 @@ const Bannee = () => {
           <h2 className='md:text-5xl text-3xl font-bold md:leading-snug leading-snug  '>Discover Fashion <br/>   
           That  <span className=' text-pink-500'>Defines You</span></h2>
           <p className='lg:text-xl text-[#4A4A4A]'>Where Each Plate Weaves a Story of <br/> Culinary Mastery and Passionate </p>
-          <button className='btn shadow-md bg-pink-500 px-8 py-3 font-semibold  text-white rounded-full items-center justify-center'>Shop Now <FaArrowRight className="text-md" /> </button>
+          <Link className='btn shadow-md bg-pink-500 px-8 py-3 font-semibold  text-white rounded-full items-center justify-center' to={'/shop'}>Shop Now <FaArrowRight className="text-md" /> </Link>
           </div>
           {/* images */}
           <div className='md:w-1/2'>
@@ -44,7 +45,7 @@ const Bannee = () => {
           <input type="radio" name="rating-2" className="mask mask-star-2 bg-violet-400" readOnly />
           <input type="radio" name="rating-2" className="mask mask-star-2 bg-violet-400" readOnly />
           <input type="radio" name="rating-2" className="mask mask-star-2 bg-violet-400" readOnly />
-          <input type="radio" name="rating-2" className="mask mask-star-2 bg-violet-400" readOnly checked />
+          <input type="radio" name="rating-2" className="mask mask-star-2 bg-violet-400" readOnly />
           <input type="radio" name="rating-2" className="mask mask-star-2 bg-violet-400" readOnly />
           </div>
           </div>

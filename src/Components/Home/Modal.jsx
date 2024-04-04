@@ -7,7 +7,7 @@ function Component() {
     <Banner>
        <div className="flex  mx-auto justify-between ">
        <div className="mx-auto flex items-center">
-          <img src="https://aodour.oss-ap-southeast-1.aliyuncs.com/banner/2024-02-14/1b08f079-cd8c-4209-8503-8612ab82d717.gif" alt="" />
+          <img src="https://aodour.oss-ap-southeast-1.aliyuncs.com/banner/2024-04-03/8dca0dd4-05a7-49aa-9e01-305afda059d7.gif"/>
         </div>
         <BannerCollapseButton color="gray" className="border-0 bg-transparent text-gray-500  dark:text-gray-400">
           <HiX className="h-4 w-4" />

@@ -33,7 +33,6 @@ const SignUp = () => {
     }
     axios.post('https://task-backend-sigma.vercel.app/totalusers', userInfo)
     .then(res => {
-      console.log(res.data);
       if (res.data.insertedId) {
         toast.success("Account created successfully.");
           navigate('/');

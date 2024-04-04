@@ -71,21 +71,21 @@ const Checkout = () => {
     }
   };
 
+  const shippingDetails = {
+    fullName,
+    phoneNumber,
+    productName:informaton?.name,
+    productPrice:informaton?.price,
+    district: selectedDistrict,
+    upazila: selectedUpazila,
+    invoiceDate:moment().format('Do MMM YYYY'),
+    address,
+    totalPrice,
+    discountedPrice,
+
+  };
+
   const handleConfirmOrder = () => {
-
-    const shippingDetails = {
-      fullName,
-      phoneNumber,
-      productName:informaton?.name,
-      productPrice:informaton?.price,
-      district: selectedDistrict,
-      upazila: selectedUpazila,
-      invoiceDate:moment().format('Do MMM YYYY'),
-      address,
-      totalPrice,
-      discountedPrice,
-
-    };
     
     axios.post('https://task-backend-sigma.vercel.app/orders', shippingDetails)
       .then(res => {
@@ -115,6 +115,7 @@ const Checkout = () => {
         full_name: user?.displayName ? user?.displayName : fullName,
         email: user?.email ? user?.email : 'tareqazizmahim@gmail.com',
         amount: totalPrice,
+        shippingDetails
       };
       if (payOption === "sslcommarz") {
         console.log("sslcommaarz");
@@ -126,7 +127,6 @@ const Checkout = () => {
       else if (payOption === "uddoktapay") {
         axios.post("https://task-backend-sigma.vercel.app/payment", payInfo)
           .then(res => {
-            console.log("Response from server:", res.data);
             if (res.data.payment_url) {
               window.location.href = res.data.payment_url;
             }
@@ -144,14 +144,14 @@ const Checkout = () => {
         handleConfirmOrder();
     }
        else {
-//         toast.error("please select payment option");
+         toast.error("please select a payment option");
       }
     } catch (error) {
       console.log(error);
+      toast.error("Something Went Wrong , Try Againg");
     }
   };
 
-  //
 
   return (
     <div className="overflow-y-hidden">
@@ -194,7 +194,7 @@ const Checkout = () => {
             <form onSubmit={handleSubmit}  className="max-w-sm mx-auto">
         <div>
           <h3 className="mb-5 text-lg font-medium text-gray-900 dark:text-white">
-            Please Select your prefer payment options
+            Please select your prefer payment option
           </h3>
           <>
             <ul className="grid w-full gap-6 md:grid-cols-2">
@@ -304,7 +304,7 @@ const Checkout = () => {
             </ul>
           </>
         </div>
-            <button  type="submit" id="Confirm_Order"  disabled={!fullName || !phoneNumber || !selectedDistrict || !selectedUpazila || !address}   className="focus:outline-none focus:ring-2 focus:ring-gray-500 focus:ring-offset-2 mt-8 text-base font-medium text-center  focus:ring-ocus:ring-gray-800 leading-4 hover:bg-black py-4 w-full md:w-4/12 lg:w-full text-white bg-gray-800 disabled:bg-red-600" >
+            <button  type="submit" id="Confirm_Order"  disabled={!fullName || !phoneNumber || !selectedDistrict || !selectedUpazila || !address }   className="focus:outline-none focus:ring-2 focus:ring-gray-500 focus:ring-offset-2 mt-8 text-base font-medium text-center  focus:ring-ocus:ring-gray-800 leading-4 hover:bg-black py-4 w-full md:w-4/12 lg:w-full text-white bg-gray-800 disabled:bg-red-600" >
               Place Order
             </button>
       </form>  
