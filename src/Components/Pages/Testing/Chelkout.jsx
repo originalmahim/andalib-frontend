@@ -74,6 +74,22 @@ const Checkout = () => {
   const shippingDetails = {
     fullName,
     phoneNumber,
+    PaymentStatus : 'Cash On Delivary',
+    productName:informaton?.name,
+    productPrice:informaton?.price,
+    district: selectedDistrict,
+    upazila: selectedUpazila,
+    invoiceDate:moment().format('Do MMM YYYY'),
+    address,
+    totalPrice,
+    discountedPrice,
+
+  };
+
+  const DigitalPayment = {
+    fullName,
+    phoneNumber,
+    PaymentStatus:'Paid',
     productName:informaton?.name,
     productPrice:informaton?.price,
     district: selectedDistrict,
@@ -115,7 +131,8 @@ const Checkout = () => {
         full_name: user?.displayName ? user?.displayName : fullName,
         email: user?.email ? user?.email : 'tareqazizmahim@gmail.com',
         amount: totalPrice,
-        shippingDetails
+        DigitalPayment
+        
       };
       if (payOption === "sslcommarz") {
         console.log("sslcommaarz");
